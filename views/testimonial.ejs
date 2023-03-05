@@ -1,0 +1,75 @@
+<%- include('partials/header.ejs') %>
+
+  <body>
+    <%- include('partials/side.ejs') %>
+
+    <!-- Right Panel -->
+    <div id="right-panel" class="right-panel">
+      <!-- Header-->
+     
+      <header id="header" class="header">
+        <div class="top-left">
+          <div class="navbar-header">
+            <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+          </div>
+        </div>
+        <a style="margin-top: 12px;
+        float: right;" href = "/" class="btn btn-danger">Logout</a>
+      </header>
+      <!-- /#header -->
+      <!-- Content -->
+      <div class="content">
+        <div class="animated fadeIn">
+             <form action="/testimonial" method="post">
+                    <div class="form-group row">
+                      <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
+                      <div class="col-sm-10">
+                        <input required type="text" name="firstName"  class="form-control" id="staticEmail" placeholder="Name">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="staticEmail" class="col-sm-2 col-form-label">Position</label>
+                      <div class="col-sm-10">
+                        <input required type="text" name="position"  class="form-control" id="staticEmail" placeholder="Position">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Comment</label>
+                        <div class="col-sm-10">
+                          <input required type="text" name="comment"  class="form-control" id="staticEmail" placeholder="Comment">
+                        </div>
+                      </div>
+
+                      <div class="form-check">
+                        <input value="Male" class="form-check-input" type="radio" name="gender" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Male
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input value="Female" class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Female
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                    
+                  </form>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+      </div>
+      <!-- /.content -->
+
+      <!-- /.site-footer -->
+    </div>
+    <!-- /#right-panel -->
+
+    <!-- Scripts -->
+    <%- include('partials/footer.ejs') %>
+
+  </body>
+</html>

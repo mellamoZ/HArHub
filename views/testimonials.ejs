@@ -1,0 +1,69 @@
+<%- include('partials/header.ejs') %>
+
+
+  <body>
+    <%- include('partials/side.ejs') %>
+
+    <!-- Right Panel -->
+    <div id="right-panel" class="right-panel">
+      <!-- Header-->
+
+      <header id="header" class="header">
+        <div class="top-left">
+          <div class="navbar-header">
+            <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+          </div>
+        </div>
+        <a style="margin-top: 12px;
+        float: right;" href = "/" class="btn btn-danger">Logout</a>
+      </header>
+      <!-- /#header -->
+      <!-- Content -->
+      <div class="content">
+        <div class="animated fadeIn">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Testimonials</strong>
+                        </div>
+                        <div class="card-body">
+                            <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Client</th>
+                                        <th>Comment</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <% testimonial.forEach((i) => { %>
+                                <tbody>
+                                    <tr>
+                                        <td><%= i.firstName %></td>
+                                        <td><%= i.comment %></td>
+                                        <td><%= i.date %></td>
+                                    </tr>
+                                </tbody>
+                                <% }) %>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+      </div>
+      <!-- /.content -->
+
+      <!-- /.site-footer -->
+    </div>
+    <!-- /#right-panel -->
+
+    <!-- Scripts -->
+    <%- include('partials/footer.ejs') %>
+
+  </body>
+</html>

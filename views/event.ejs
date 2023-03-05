@@ -1,0 +1,96 @@
+<%- include('partials/header.ejs') %>
+<body id="page-top">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+
+    <%- include('partials/side.ejs') %>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Sidebar Toggle (Topbar) -->
+        <button
+          id="sidebarToggleTop"
+          class="btn btn-link d-md-none rounded-circle mr-3"
+        >
+          <i class="fa fa-bars"></i>
+        </button>
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+                  <!--  Start Header -->
+                  <div
+                  class="d-sm-flex align-items-center justify-content-between mb-4 mt-4"
+                >
+                  <h1 class="h3 mb-0 text-gray-800">Make an event</h1>
+                  <a
+                    href="/"
+                    class="d-none btn-danger d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                    ><i class="fas fa-cancel fa-sm text-white-50"></i> Logout</a
+                  >
+                </div>
+            <!--End header-->    
+            <form action="/event" method="post" enctype="multipart/form-data">
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Event Name</label>
+                <div class="col-sm-10">
+                  <input name="name" type="text"required  class="form-control" id="staticEmail" placeholder="Event name">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Event Date</label>
+                <div class="col-sm-10">
+                  <input name="date" type="date"  class="form-control" required id="staticEmail" placeholder="Event date">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Event Time</label>
+                <div class="col-sm-10">
+                  <input name="time" type="time"  class="form-control" id="staticEmail" required placeholder="Event time">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Event pic</label>
+                <div class="col-sm-10">
+                  <input name="pic" type="file"  class="form-control" id="staticEmail" placeholder="Event pic" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Place of event</label>
+                <div class="col-sm-10">
+                  <input name="place" type="text"  class="form-control" id="staticEmail" placeholder="Event pic" required>
+                </div>
+              </div> 
+
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Event description</label>
+                <div class="col-sm-10">
+                  <input name="description" type="text" required class="form-control" id="staticEmail" placeholder="Event description"required>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Event fee</label>
+                <div class="col-sm-10">
+                  <input name="fee" type="number"  class="form-control" id="staticEmail" placeholder="Event fee">
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+              <button type="submit" class="btn btn-success">Submit</button>
+              </div>
+              
+            </form>
+
+      </div>
+      <!-- End of Main Content -->
+    </div>
+    <!-- End of Content Wrapper -->
+    <%- include('partials/footer.ejs') %>
+  </div>
+</body>

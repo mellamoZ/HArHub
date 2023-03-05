@@ -1,0 +1,87 @@
+<%- include('partials/header.ejs') %>
+<body id="page-top">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+
+    <%- include('partials/side.ejs') %>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Sidebar Toggle (Topbar) -->
+        <button
+          id="sidebarToggleTop"
+          class="btn btn-link d-md-none rounded-circle mr-3"
+        >
+          <i class="fa fa-bars"></i>
+        </button>
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+                  <!--  Start Header -->
+                  <div
+                  class="d-sm-flex align-items-center justify-content-between mb-4 mt-4"
+                >
+                  <h1 class="h3 mb-0 text-gray-800">Make an event</h1>
+                  <a
+                    href="/"
+                    class="d-none btn-danger d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                    ><i class="fas fa-cancel fa-sm text-white-50"></i> Logout</a
+                  >
+                </div>
+            <!--End header-->    
+            <div class="card-body">
+              <div class="table-responsive">
+            <table
+            class="table table-bordered"
+            id="dataTable"
+            width="100%"
+            cellspacing="0"
+          >
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Phone no.</th>
+                <th>Email</th>
+                <th>Event name</th>
+                <th>Booking date/time</th>
+                <th>Event date/time</th>
+                <th>Fee</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <% bookings.forEach((i) => { %>
+            <tbody>
+              <tr>
+                <td><%= i.fullName %></td>
+                <td><%= i.phone %></td>
+                <td><%= i.email %></td>
+                <td><%= i.eventName %></td>
+                <td><%= i.bookingDate %> <br/> <%= i.time %></td>
+                <td><%= i.eventDate %>,<%= i.eventTime %></td>
+                <td>$<%= i.fee %></td>
+
+                <td>
+                  <a
+                    href="/admin/pending/edit/<%=i._id%>"
+                    style="color: #fff"
+                    class="btn btn-success"
+                  >
+                    Approve
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+            <% }) %>
+          </table>
+        </div>
+      </div>
+
+      </div>
+      <!-- End of Main Content -->
+    </div>
+    <!-- End of Content Wrapper -->
+    <%- include('partials/footer.ejs') %>
+  </div>
+</body>
