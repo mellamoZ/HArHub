@@ -21,7 +21,6 @@ app.use(
 
 app.use(bodyParser.json());
 mongoose.connect(
-  // "mongodb+srv://Abdulaziz:524303zizu@cluster0.loaqq.mongodb.net/somdigitalDB"
   "mongodb+srv://Abdulaziz:524303zizu@cluster0.cc9lkwm.mongodb.net/harhubDB"
   // "mongodb://localhost:27017/harhubDB"
 );
