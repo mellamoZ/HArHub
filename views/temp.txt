@@ -1,12 +1,34 @@
-<form action="/admin/pending/action" method="post">
+ <form action="/testimonial" method="post">
                     <div class="form-group row">
-                      <label for="staticEmail" class="col-sm-2 col-form-label"><%=blogName%> is: </label>
+                      <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
                       <div class="col-sm-10">
-                        <select required name="action" class="form-control" id="inputPassword" placeholder="Description"> 
-                              <option  value="Active">Completed</option>
-                              <option  value="Delete">Deleted</option>
-                              <option  value="Pending">Pending</option>
-                        </select>
+                        <input required type="text" name="firstName"  class="form-control" id="staticEmail" placeholder="Name">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="staticEmail" class="col-sm-2 col-form-label">Position</label>
+                      <div class="col-sm-10">
+                        <input required type="text" name="position"  class="form-control" id="staticEmail" placeholder="Position">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Comment</label>
+                        <div class="col-sm-10">
+                          <input required type="text" name="comment"  class="form-control" id="staticEmail" placeholder="Comment">
+                        </div>
+                      </div>
+
+                      <div class="form-check">
+                        <input value="Male" class="form-check-input" type="radio" name="gender" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Male
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input value="Female" class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Female
+                        </label>
                       </div>
                     </div>
 

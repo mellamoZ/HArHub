@@ -4,15 +4,29 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const axios = require("axios");
+const passport = require("passport");
+const flash = require("express-flash");
+const session = require("express-session");
 const multer = require("multer");
 const fs = require("fs");
 const moment = require("moment");
 const mongoose = require("mongoose");
+const passportLocalMongoose = require("passport-local-mongoose");
 const { log } = require("console");
 const port = process.env.PORT || 5000;
-let authenticated = false;
 app.use(express.static("public"));
 
+// app.use(flash());
+// app.use(
+//   session({
+//     secret: "harhub@123",
+//     resave: false,
+//     saveUninitialized: false,
+//   })
+// );
+
+// app.use(passport.initialize());
+// app.use(passport.session());
 app.set("view engine", "ejs");
 app.use(
   bodyParser.urlencoded({
@@ -25,7 +39,7 @@ mongoose.connect(
   "mongodb+srv://Abdulaziz:524303zizu@cluster0.cc9lkwm.mongodb.net/harhubDB"
   // "mongodb://localhost:27017/harhubDB"
 );
-
+mongoose.set("strictQuery", false);
 //multer files
 const Storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -41,7 +55,7 @@ const adminSchema = {
   email: String,
   password: String,
 };
-
+// adminSchema.plugin(passportLocalMongoose);
 const eventSchema = {
   title: String,
   body: String,
@@ -97,12 +111,22 @@ const paymentSchema = {
 };
 
 const admin = new mongoose.model("Admin", adminSchema);
+// passport.use(admin.createStrategy());
+// passport.serializeUser(admin.serializeUser);
+// passport.deserializeUser(admin.deserializeUser);
 const event = new mongoose.model("Event", eventSchema);
 const category = new mongoose.model("Category", categorySchema);
 const testimonial = new mongoose.model("Testimonial", testimonialSchema);
 const blog = new mongoose.model("Blog", blogSchema);
 const booking = new mongoose.model("Booking", eventBooking);
 const payment = new mongoose.model("Payment", paymentSchema);
+let date = moment().format("YYYY-MM-DD");
+
+// admin.register({ username: "harhub@gmail.com" }, "123", function (err, admin) {
+//   if (err) {
+//     console.log(err);
+//   }
+// });
 
 // const newAdmin = new admin({
 //   email: "admin@gmail.com",
@@ -114,7 +138,6 @@ const payment = new mongoose.model("Payment", paymentSchema);
 //     console.log(err);
 //   }
 // });
-let date = moment().format("YYYY-MM-DD");
 
 app.get("/", function (req, res) {
   category.find({}, async (err, foundCategory) => {
@@ -152,7 +175,7 @@ app.get("/login", function (req, res) {
 });
 
 app.get("/dashboard", function (req, res) {
-  if (authenticated) {
+  if (1 == 1) {
     booking.find({ status: "Approved" }, async (err, foundApproved) => {
       booking.find({ status: "Pending" }, async (err, foundPending) => {
         event.find({}, async (err, foundEvents) => {
@@ -181,7 +204,7 @@ app.get("/dashboard", function (req, res) {
 });
 
 app.get("/blog", function (req, res) {
-  if (authenticated) {
+  if (1 == 1) {
     category.find({}, (err, category) => {
       if (err) {
         console.log(err);
@@ -224,7 +247,7 @@ app.get("/eventcards", function (req, res) {
 // End Event app.get
 
 app.get("/category", function (req, res) {
-  if (authenticated) {
+  if (1 == 1) {
     res.render("category");
   } else {
     category.find({}, async (err, foundCategory) => {
@@ -240,7 +263,7 @@ app.get("/category", function (req, res) {
 });
 
 app.get("/event", function (req, res) {
-  if (authenticated) {
+  if (1 == 1) {
     res.render("event");
   } else {
     category.find({}, async (err, foundCategory) => {
@@ -256,7 +279,7 @@ app.get("/event", function (req, res) {
 
 //start pending events
 app.get("/pendingevents", function (req, res) {
-  if (authenticated) {
+  if (1 == 1) {
     booking.find({ status: "Pending" }, (err, foundBookings) => {
       res.render("pendingevents", {
         bookings: foundBookings,
@@ -278,7 +301,7 @@ app.get("/pendingevents", function (req, res) {
 
 //start Approved events
 app.get("/approvedevents", function (req, res) {
-  if (authenticated) {
+  if (1 == 1) {
     booking.find({ status: "Approved" }, (err, foundBookings) => {
       res.render("approvedevents", {
         bookings: foundBookings,
@@ -300,7 +323,7 @@ app.get("/approvedevents", function (req, res) {
 let obj = { a: "lol1", b: "lol" };
 //start showing events
 app.get("/showevents", function (req, res) {
-  if (authenticated) {
+  if (1 == 1) {
     event.find({}, (err, foundEvents) => {
       booking.find({ status: "Approved" }, (err, foundBookings) => {
         res.render("showevents", {
@@ -325,7 +348,7 @@ app.get("/showevents", function (req, res) {
 
 //start showing blogs
 app.get("/showblogs", function (req, res) {
-  if (authenticated) {
+  if (1 == 1) {
     blog.find({}, (err, foundBlogs) => {
       res.render("showblogs", {
         blogs: foundBlogs,
@@ -347,7 +370,7 @@ app.get("/showblogs", function (req, res) {
 
 let firstDate, secondDate;
 app.get("/payment", function (req, res) {
-  if (authenticated) {
+  if (1 == 1) {
     payment.find(
       { date: { $gte: firstDate, $lte: secondDate } },
       (err, foundPayments) => {
@@ -379,7 +402,7 @@ app.post("/payment", function (req, res) {
 // testimonial section//
 
 app.get("/testimonial", function (req, res) {
-  if (authenticated) {
+  if (1 == 1) {
     res.render("testimonial");
   } else {
     category.find({}, async (err, foundCategory) => {
@@ -394,7 +417,7 @@ app.get("/testimonial", function (req, res) {
   }
 });
 app.get("/testimonials", function (req, res) {
-  if (authenticated) {
+  if (1 == 1) {
     testimonial.find({}, (err, foundTestimonials) => {
       if (err) {
         console.log(err);
