@@ -140,11 +140,11 @@
             <div class="count-box">
               <span
                 data-purecounter-start="0"
-                data-purecounter-end="65"
+                data-purecounter-end="203"
                 data-purecounter-duration="2"
                 class="purecounter"
               ></span>
-              <p>Happy Clients</p>
+              <p>Students</p>
             </div>
           </div>
 
@@ -152,7 +152,7 @@
             <div class="count-box">
               <span
                 data-purecounter-start="0"
-                data-purecounter-end="85"
+                data-purecounter-end="12"
                 data-purecounter-duration="2"
                 class="purecounter"
               ></span>
@@ -164,7 +164,7 @@
             <div class="count-box">
               <span
                 data-purecounter-start="0"
-                data-purecounter-end="30"
+                data-purecounter-end="23"
                 data-purecounter-duration="2"
                 class="purecounter"
               ></span>
@@ -176,7 +176,7 @@
             <div class="count-box">
               <span
                 data-purecounter-start="0"
-                data-purecounter-end="20"
+                data-purecounter-end="6"
                 data-purecounter-duration="2"
                 class="purecounter"
               ></span>
@@ -331,27 +331,26 @@
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          <div class="swiper-wrapper">
-            <!-- loop here -->
+        <div class="swiper-wrapper">
+          <% testimonials.forEach((i) => { %>
+
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua
-                  veniam tempor noster veniam enim culpa labore duis sunt culpa
-                  nulla illum cillum fugiat legam esse veniam culpa fore nisi
-                  cillum quid.
+                  <%=i.comment%>
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img
-                  src="assets/img/testimonials/testimonials-5.jpg"
+                  <img
+                  src="assets/<%=i.pic%>"
                   class="testimonial-img"
-                  alt=""
-                />
-                <h3>loln</h3>
-                <h4>Entrepreneur</h4>
+                  style="width:80px; height:80px"
+                  alt=""/>
+                <h3><%=i.firstName%></h3>
+                <h4><%=i.position%></h4>
               </div>
             </div>
+            <%})%>
 
             <!-- End testimonial item -->
           </div>
@@ -988,7 +987,7 @@
 
     const cursorSpan = document.querySelector(".cursor");
 
-    const textArray = ["Innovation", "Integrity", "Love"];
+    const textArray = ["Innovation", "cooperation", "Creativity"];
     let colors = ["#7fa046", "#26C4F1", "#a10792"];
     const typingDelay = 50;
     const erasingDelay = 50;

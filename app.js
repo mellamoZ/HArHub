@@ -6,6 +6,7 @@ const ejs = require("ejs");
 const axios = require("axios");
 const multer = require("multer");
 const fs = require("fs");
+const moment = require("moment");
 const mongoose = require("mongoose");
 const { log } = require("console");
 const port = process.env.PORT || 5000;
@@ -74,7 +75,7 @@ const testimonialSchema = {
   comment: String,
   date: String,
   position: String,
-  gender: String,
+  pic: String,
 };
 
 const blogSchema = {
@@ -85,12 +86,23 @@ const blogSchema = {
   pic: String,
 };
 
+const paymentSchema = {
+  eventId: String,
+  fullName: String,
+  eventDate: String,
+  eventTime: String,
+  eventName: String,
+  payment: Number,
+  date: String,
+};
+
 const admin = new mongoose.model("Admin", adminSchema);
 const event = new mongoose.model("Event", eventSchema);
 const category = new mongoose.model("Category", categorySchema);
 const testimonial = new mongoose.model("Testimonial", testimonialSchema);
 const blog = new mongoose.model("Blog", blogSchema);
 const booking = new mongoose.model("Booking", eventBooking);
+const payment = new mongoose.model("Payment", paymentSchema);
 
 // const newAdmin = new admin({
 //   email: "admin@gmail.com",
@@ -102,9 +114,9 @@ const booking = new mongoose.model("Booking", eventBooking);
 //     console.log(err);
 //   }
 // });
+let date = moment().format("YYYY-MM-DD");
 
 app.get("/", function (req, res) {
-  authenticated = false;
   category.find({}, async (err, foundCategory) => {
     if (err) {
       console.log(err);
@@ -141,13 +153,13 @@ app.get("/login", function (req, res) {
 
 app.get("/dashboard", function (req, res) {
   if (authenticated) {
-    blog.find({ status: "Active" }, async (err, foundActiveBlogs) => {
-      blog.find({ status: "Pending" }, async (err, foundPendingBlogs) => {
+    booking.find({ status: "Approved" }, async (err, foundApproved) => {
+      booking.find({ status: "Pending" }, async (err, foundPending) => {
         event.find({}, async (err, foundEvents) => {
           testimonial.find({}, async (err, foundTestimonials) => {
             res.render("dashboard", {
-              completed: foundActiveBlogs.length,
-              pending: foundPendingBlogs.length,
+              approved: foundApproved.length,
+              pending: foundPending.length,
               events: foundEvents.length,
               testimonials: foundTestimonials.length,
             });
@@ -286,7 +298,7 @@ app.get("/approvedevents", function (req, res) {
 });
 //end Approved events
 let obj = { a: "lol1", b: "lol" };
-//start pending blogs
+//start showing events
 app.get("/showevents", function (req, res) {
   if (authenticated) {
     event.find({}, (err, foundEvents) => {
@@ -309,11 +321,13 @@ app.get("/showevents", function (req, res) {
     });
   }
 });
-//end pending blogs
-app.get("/completed", function (req, res) {
+//end showing events
+
+//start showing blogs
+app.get("/showblogs", function (req, res) {
   if (authenticated) {
-    blog.find({ status: "Active" }, (err, foundBlogs) => {
-      res.render("completed", {
+    blog.find({}, (err, foundBlogs) => {
+      res.render("showblogs", {
         blogs: foundBlogs,
       });
     });
@@ -329,6 +343,40 @@ app.get("/completed", function (req, res) {
     });
   }
 });
+//end showing blogs
+
+let firstDate, secondDate;
+app.get("/payment", function (req, res) {
+  if (authenticated) {
+    payment.find(
+      { date: { $gte: firstDate, $lte: secondDate } },
+      (err, foundPayments) => {
+        res.render("payment", {
+          payments: foundPayments,
+        });
+      }
+    );
+  } else {
+    category.find({}, async (err, foundCategory) => {
+      if (err) {
+        console.log(err);
+      }
+
+      res.render("login", {
+        categories: foundCategory,
+      });
+    });
+  }
+});
+// start payment app.post//
+app.post("/payment", function (req, res) {
+  firstDate = req.body.date1;
+  secondDate = req.body.date2;
+  res.redirect("/payment");
+});
+// start payment app.post//
+
+// testimonial section//
 
 app.get("/testimonial", function (req, res) {
   if (authenticated) {
@@ -470,10 +518,29 @@ app.post("/admin/pending/action", function (req, res) {
     booking.findOneAndUpdate(
       { _id: eventId },
       { status: action },
-      async (err, changed) => {
+      async (err, foundBooking) => {
         if (err) {
           console.log(err);
         } else {
+          //adding payment data
+          const newPayment = new payment({
+            eventId: foundBooking.eventid,
+            fullName: foundBooking.fullName,
+            eventDate: foundBooking.eventDate,
+            eventTime: foundBooking.eventTime,
+            eventName: foundBooking.eventName,
+            payment: foundBooking.fee,
+            date: currentDate,
+          });
+
+          newPayment.save(function (err) {
+            if (err) {
+              console.log(err);
+            }
+          });
+
+          // end adding payment data
+
           res.redirect("/pendingevents");
         }
       }
@@ -559,21 +626,17 @@ app.post("/category", function (req, res) {
 
 //Start Posting Testimonial
 
-app.post("/testimonial", function (req, res) {
+app.post("/testimonial", upload.single("pic"), function (req, res) {
   const firstName = req.body.firstName;
   const comment = req.body.comment;
   const gender = req.body.gender;
   const position = req.body.position;
-  const date = `${new Date().getDate()}/${
-    new Date().getMonth() + 1
-  }/${new Date().getFullYear()}`;
-
   const newTestimonial = new testimonial({
     firstName: firstName,
     position: position,
     comment: comment,
     date: date,
-    gender: gender,
+    pic: "/uploads/" + req.file.filename,
   });
 
   newTestimonial.save(function (err) {
@@ -593,12 +656,6 @@ app.post("/booking", function (req, res) {
   const mobile = req.body.mobile;
   const email = req.body.email;
   const eventId = req.body.id;
-  const date = `${new Date().getFullYear()}-${
-    new Date().getMonth() + 1
-  }-${new Date().getDate()}`;
-  const time = `${new Date().getHours()}:${
-    new Date().getMinutes() + 1
-  }:${new Date().getSeconds()}`;
 
   event.findOne({ _id: eventId }, (err, foundOne) => {
     if (err) {
@@ -635,9 +692,6 @@ app.post("/blog", upload.single("pic"), function (req, res) {
   const blogName = req.body.blogName;
   const description = req.body.description;
   const category = req.body.category;
-  const date = `${new Date().getFullYear()}-${
-    new Date().getMonth() + 1
-  }-${new Date().getDate()}`;
 
   const newBlog = new blog({
     blogName: blogName,
