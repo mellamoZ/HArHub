@@ -121,7 +121,7 @@ const blog = new mongoose.model("Blog", blogSchema);
 const booking = new mongoose.model("Booking", eventBooking);
 const payment = new mongoose.model("Payment", paymentSchema);
 let date = moment().format("YYYY-MM-DD");
-
+let time = moment().format("LT");
 // admin.register({ username: "harhub@gmail.com" }, "123", function (err, admin) {
 //   if (err) {
 //     console.log(err);
