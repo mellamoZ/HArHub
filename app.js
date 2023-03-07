@@ -553,7 +553,7 @@ app.post("/admin/pending/action", function (req, res) {
             eventTime: foundBooking.eventTime,
             eventName: foundBooking.eventName,
             payment: foundBooking.fee,
-            date: currentDate,
+            date: date,
           });
 
           newPayment.save(function (err) {
