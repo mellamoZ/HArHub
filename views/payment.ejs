@@ -69,13 +69,13 @@
             <tbody>
             <%let totalAcc = 0%>
             <% payments.forEach((i) => { %>
-                <%totalAcc += i.payment %>          
+                <%totalAcc += Number(i.fee) %>          
               <tr>
                 <td><%= i.fullName %></td>
                 <td><%= i.eventName %></td>
                 <td><%= i.eventDate %> <br/> <%= i.eventTime %></td>
-                <td><%= i.date %></td>
-                <td>$<%= i.payment %></td>
+                <td><%= i.bookingDate %></td>
+                <td>$<%= i.fee %></td>
            
             <% }) %>
          </tbody>

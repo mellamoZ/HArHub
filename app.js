@@ -371,8 +371,11 @@ app.get("/showblogs", function (req, res) {
 let firstDate, secondDate;
 app.get("/payment", function (req, res) {
   if (1 == 1) {
-    payment.find(
-      { date: { $gte: firstDate, $lte: secondDate } },
+    booking.find(
+      {
+        bookingDate: { $gte: firstDate, $lte: secondDate },
+        status: "Approved",
+      },
       (err, foundPayments) => {
         res.render("payment", {
           payments: foundPayments,
@@ -545,25 +548,6 @@ app.post("/admin/pending/action", function (req, res) {
         if (err) {
           console.log(err);
         } else {
-          //adding payment data
-          const newPayment = new payment({
-            eventId: foundBooking.eventid,
-            fullName: foundBooking.fullName,
-            eventDate: foundBooking.eventDate,
-            eventTime: foundBooking.eventTime,
-            eventName: foundBooking.eventName,
-            payment: foundBooking.fee,
-            date: date,
-          });
-
-          newPayment.save(function (err) {
-            if (err) {
-              console.log(err);
-            }
-          });
-
-          // end adding payment data
-
           res.redirect("/pendingevents");
         }
       }
