@@ -1,0 +1,95 @@
+
+
+
+/*===========================
+    8.GALLERY css 
+===========================*/
+
+
+
+
+
+.gallery-area{
+	background: #3f3836;
+	padding-top: 110px;
+	position: relative;
+	z-index: 11;
+	& .gallery-title{
+		padding-bottom: 120px;
+		& .title{
+			color: $white;
+			font-size: 44px;
+			@media #{$xs} {
+				font-size: 30px;
+			}
+		}
+	}
+	& .gallery-itmes{
+		border-top: 2px solid #eee;
+		border-bottom: 2px solid #eee;
+		& .gallery-thumb{
+			border: 3px solid #eeeeee;
+			position: relative;
+			@include transition(0.3s);
+			& img{
+				width: 100%;
+			}
+			& a{
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				height: 116px;
+				width: 122px;
+				@include transition(0.3s);
+				opacity: 0;
+				line-height: 116px;
+			}
+			&::before{
+				position: absolute;
+				content: '';
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 100%;
+				background-color: rgba(52, 45, 44,.4);
+				transform: scaleX(0);
+				@include transition(0.3s);
+			}
+			&:hover{
+				
+				& a{
+					opacity: 1;
+				}
+				&::before{
+					transform: scaleX(1);
+					box-shadow: 0px 15px 40px 0px rgba(63, 56, 54, 0.2);
+				}
+			}
+		}
+	}
+	& .gallery-active{
+		& .col-lg-3{
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	&.gallery-page{
+		background: $white;
+		padding-bottom: 120px;
+		padding-top: 90px;
+		& .gallery-itmes{
+			border: 0;
+			& .gallery-thumb{
+				border: 0;
+			}
+		}
+
+	}
+}
+
+
+
+
+
+

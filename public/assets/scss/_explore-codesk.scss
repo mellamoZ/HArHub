@@ -1,0 +1,107 @@
+
+
+
+/*===========================
+    28.EXPLORE CODESK css 
+===========================*/
+
+
+
+
+.explore-codesk-area{
+	padding-top: 111px;
+	padding-bottom: 120px;
+	background: #fbf0ee;
+	position: relative;
+	z-index: 10;
+	& .explore-codesk-shape{
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+	& .explore-codesk-title{
+		& .title{
+			font-size: 44px;
+			padding-bottom: 26px;
+			@media #{$xs} {
+				font-size: 32px;
+			}
+		}
+
+	}
+	& .explore-codesk-item{
+		background: $white;
+		border: 1px solid #f7eae8;
+		padding-left: 280px;
+		padding-bottom: 37px;
+		padding-top: 43px;
+		padding-right: 55px;
+		position: relative;
+		@include transition(0.3s);
+		@media #{$lg} {
+			padding-left: 250px;
+			padding-right: 20px;
+		}
+		@media #{$xs} {
+			padding-left: 20px;
+			padding-top: 20px;
+			padding-right: 20px;
+			padding-bottom: 20px;
+		}
+		@media #{$sm} {
+			padding-left: 280px;
+			padding-bottom: 37px;
+			padding-top: 43px;
+			padding-right: 55px;
+		}
+		& img{
+			position: absolute;
+			bottom: 20px;
+			left: 20px;
+			@media #{$xs} {
+				position: static;
+				width: 100%;
+				margin-bottom: 20px;
+			}
+			@media #{$sm} {
+				position: absolute;
+				margin-bottom: 0;
+				width: auto;
+			}
+		}
+		& .title{
+			font-size: 24px;
+		}
+		& p{
+			font-weight: 500;
+			padding-top: 5px;
+			padding-bottom: 18px;
+		}
+		& .item{
+			padding-bottom: 22px;
+			& span{
+				font-size: 14px;
+				font-weight: 600;
+				color: $heading-color;
+			}
+			& p{
+				font-size: 24px;
+				font-weight: 400;
+				color: $theme-color;
+			}
+		}
+		& a{
+			line-height: 36px;
+			padding: 0 20px;
+			font-size: 14px;
+			& i{
+				padding-left: 6px;
+			}
+		}
+		&:hover{
+			box-shadow: 0px 20px 20px 0px rgba(63, 56, 54, 0.04);
+		}
+	}
+}
+

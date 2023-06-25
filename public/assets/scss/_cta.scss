@@ -1,0 +1,156 @@
+
+
+
+/*===========================
+    13.CTA css 
+===========================*/
+
+
+.cta-area{
+	position: relative;
+	&::before{
+		position: absolute;
+		content: '';
+		left: 0;
+		top: 0;
+		height: 260px;
+		width: 100%;
+		background: #fbf0ee;
+	}
+	.cta-bg{
+		background: $theme-color;
+		padding: 86px 100px 100px;
+		position: relative;
+		z-index: 10;
+		overflow: hidden;
+		@media #{$xs} {
+			padding: 30px;
+		}
+		& .cta-dot{
+			position: absolute;
+			left: 260px;
+			bottom: 135px;
+			z-index: -1;
+			animation: bubbleMover2 linear infinite 5s;
+		}
+		& .cta-dot-2{
+			position: absolute;
+			right: -3px;
+			bottom: -3px;
+			z-index: -1;
+		}
+		& .cta-dot-3{
+			position: absolute;
+			right: -45px;
+			bottom: -150px;
+			z-index: -1;
+			animation: pusher linear infinite 10s;
+		}
+		& .cta-text{
+			& .title{
+				font-size: 44px;
+				color: $white;
+				padding-bottom: 70px;
+				padding-top: 5px;
+				@media #{$lg} {
+					font-size: 36px;
+				}
+				@media #{$md} {
+					padding-bottom: 30px;
+				}
+				@media #{$xs} {
+					padding-bottom: 30px;
+					font-size: 26px;
+				}
+				@media #{$sm} {
+					padding-bottom: 30px;
+					font-size: 44px;
+				}
+			}
+			& a{
+				background: $heading-color;
+			}
+			& p{
+				color: #ffe2df;
+				line-height: 34px;
+				padding-left: 30px;
+				@media #{$lg} {
+					padding-left: 0;
+				}
+				@media #{$md} {
+					margin-top: 30px;
+					padding-left: 0;
+				}
+				@media #{$xs} {
+					margin-top: 30px;
+					padding-left: 0;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+.cta-2-area{
+	background: $theme-color;
+	padding-top: 111px;
+	padding-bottom: 111px;
+	position: relative;
+	z-index: 10;
+	& .cta-dot{
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+		@media #{$xs} {
+			display: none;
+		}
+	}
+	& .cta-dot-2{
+		position: absolute;
+		top: 0;
+		left: 400px;
+		z-index: -1;
+		animation: bubbleMover2 linear infinite 5s;
+	}
+	& .cta-content{
+		& .title{
+			font-size: 44px;
+			color: $white;
+			@media #{$lg} {
+				font-size: 36px;
+			}
+			@media #{$xs} {
+				font-size: 36px;
+			}
+		}
+		& p{
+			color: $white;
+			font-weight: 500;
+			padding-left: 90px;
+			@media #{$lg} {
+				padding-left: 10px;
+			}
+			@media #{$md} {
+				padding-left: 0px;
+				margin-top: 30px;
+				margin-bottom: 30px;
+			}
+			@media #{$xs} {
+				padding-left: 0px;
+				margin-top: 30px;
+				margin-bottom: 30px;
+			}
+
+		}
+		& a{
+			background: $heading-color;
+		}
+	}
+}

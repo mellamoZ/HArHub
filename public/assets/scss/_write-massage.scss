@@ -1,0 +1,149 @@
+
+
+
+/*===========================
+    30.WRITE MASSAGE css 
+===========================*/
+
+
+
+
+.write-massage-area{
+	padding-top: 112px;
+	position: relative;
+	z-index: 10;
+	.write-massage-content{
+		& .write-massage-title{
+			padding-bottom: 49px;
+			& .title{
+				font-size: 44px;
+				@media #{$xs} {
+					font-size: 32px;
+				}
+			}
+		}
+		&  .write-massage-input{
+			margin: 0 10px;
+			& .input-box{
+				margin-right: -10px;
+				margin-left: -10px;
+				& input{
+					width: 100%;
+					line-height: 68px;
+					padding-left: 30px;
+					background: #fbf0ee;
+					border: 0;
+					font-size: 14px;
+					font-weight: 600;
+					color: #817a78;
+					&::placeholder{
+						opacity: 1;
+						color: #817a78;
+					}
+				}
+				& textarea{
+					width: 100%;
+					height: 190px;
+					padding-left: 30px;
+					background: #fbf0ee;
+					border: 0;
+					font-size: 14px;
+					font-weight: 600;
+					color: #817a78;
+					padding-top: 10px;
+					resize: none;
+					&::placeholder{
+						opacity: 1;
+						color: #817a78;
+					}
+				}
+				& button{
+					border: 0;
+					border-left: 2px solid $heading-color;
+					margin-top: 10px;
+					
+				}
+			}
+		}
+
+	}
+	& .write-massage-images{
+		margin-left: 30px;
+		margin-top: 13px;
+		@media #{$md} {
+			margin-left: 0;
+			margin-top: 30px;
+		}
+		@media #{$xs} {
+			margin-left: 0;
+			margin-top: 30px;
+		}
+		& .thumb{
+			& img{
+				width: 100%;
+			}
+			& .item-1{
+				@media #{$md} {
+					min-width: 455px;
+				}
+			}
+			& .item-2{
+				@media #{$md} {
+					min-width: 218px;
+				}
+			}
+		}
+	}
+	& .book-a-tour-info{
+		background: $theme-color;
+		padding: 43px 50px 42px;
+		margin-top: 8px;
+		@media #{$lg} {
+			padding: 43px 20px 42px;
+		}
+		@media #{$md} {
+			margin-top: 30px;
+		}
+		@media #{$xs} {
+			margin-top: 30px;
+			padding: 43px 20px 42px;
+		}
+		@media #{$sm} {
+			margin-top: 30px;
+			padding: 43px 50px 42px;
+		}
+		& span{
+			font-size: 18px;
+			font-weight: 700;
+			color: $white;
+		}
+		& p{
+			color: #ffe2df;
+			line-height: 30px;
+			padding-top: 32px;
+			padding-bottom: 18px;
+			@media #{$lg} {
+				font-size: 15px;
+			}
+		}
+		& .title{
+			color: $white;
+			font-size: 30px;
+		}
+	}
+	& .shape-pattern{
+		position: absolute;
+		left: 0px;
+		top: 95px;
+		z-index: -1;
+		animation: bubbleMover2 linear infinite 5s;
+	}
+}
+
+
+
+
+
+
+
+

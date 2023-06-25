@@ -1,0 +1,124 @@
+
+
+
+/*===========================
+    22.JOIN COMMUNITY css 
+===========================*/
+
+
+
+
+.join-community-area{
+	background: $theme-color;
+	padding: 120px 0px;
+	position: relative;
+	z-index: 10;
+	&::before{
+		position: absolute;
+		content: '';
+		right: 0;
+		top: 0;
+		height: 100%;
+		min-width: 900px;
+		background-image: url(../images/community-bg.jpg);
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		@media #{$laptop} {
+			min-width: 680px
+		}
+		@media #{$lg} {
+			min-width: 530px
+		}
+		@media #{$md} {
+			min-width: 0;
+		}
+		@media #{$xs} {
+			min-width: 0;
+		}
+	}
+	& .join-community-content{
+		& .title{
+			font-size: 44px;
+			color: $white;
+			padding-right: 100px;
+			@media #{$lg} {
+				padding-right: 40px;
+			}
+			@media #{$xs} {
+				padding-right: 0px;
+				font-size: 32px;
+			}
+			@media #{$sm} {
+				padding-right: 100px;
+				font-size: 44px;
+			}
+
+		}
+		& p{
+			color: #ffe2df;
+			padding: 40px 110px 50px 0;
+			@media #{$lg} {
+				padding: 40px 40px 50px 0;
+			}
+			@media #{$xs} {
+				padding: 40px 0px 50px 0;
+			}
+			@media #{$sm} {
+				padding: 40px 110px 50px 0;
+			}
+		}
+		& a{
+			background: #3f3836;
+		}
+	}
+	& .join-community-counter{
+		position: absolute;
+		right: 670px;
+		top: 50%;
+		transform: translateY(-50%);
+		@media #{$laptop} {
+			right: 450px;
+		}
+		@media #{$lg} {
+			right: 300px;
+		}
+		@media #{$md} {
+			display: none;
+		}
+		@media #{$xs} {
+			display: none;
+		}
+
+		& .item{
+			width: 230px;
+			background: $white;
+			padding-left: 55px;
+			padding-right: 35px;
+			padding-top: 47px;
+			padding-bottom: 56px;
+			& .title{
+				font-size: 44px;
+				color: $theme-color;
+			}
+			& p{
+				font-size: 14px;
+				font-weight: 600;
+				line-height: 24px;
+				color: $heading-color;
+			}
+			&.item-2{
+				background: #f7eae8;
+			}
+		}
+	}
+	& .community-logo{
+		position: absolute;
+		left: 145px;
+		top: 0;
+		z-index: -1;
+		@media #{$laptop} {
+			left: 0;
+		}
+	}
+}

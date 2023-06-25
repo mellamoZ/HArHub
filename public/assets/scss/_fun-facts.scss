@@ -1,0 +1,78 @@
+
+
+
+/*===========================
+    9.FUN FACTS css 
+===========================*/
+
+
+
+.fun-facts-area{
+	background: #fbf0ee;
+	position: relative;
+	z-index: 10;
+	overflow: hidden;
+	position: relative;
+	&::before{
+		position: absolute;
+		content: '';
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-image: url(../images/line.png);
+		background-size: 70% 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	& .fun-facts-pattern{
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: -1;
+	}
+	& .fun-dots{
+		position: absolute;
+		top: -115px;
+		left: 0;
+		z-index: -1;
+		animation: pusher linear infinite 5s;
+	}
+	& .fun-facts-item{
+		background-color: transparent;
+		padding-top: 36px;
+		border: 1px solid transparent;
+		@include transition(0.3s);
+		
+		& .title{
+			font-weight: 400;
+			font-size: 100px;
+			color: $theme-color;
+			@media #{$md} {
+				display: block;
+			}
+		}
+		& > span{
+			font-size: 18px;
+			font-weight: 500;
+			line-height: 30px;
+			padding: 14px 75px 64px;
+			@media #{$lg} {
+				padding: 14px 30px 64px;
+			}
+			@media #{$xs} {
+				padding: 14px 30px 64px;
+			}
+			@media #{$sm} {
+				padding: 14px 65px 64px;
+			}
+		}
+		&.active,
+		&:hover{
+			background: $white;
+			box-shadow: 0px 20px 20px 0px rgba(63, 56, 54, 0.04);
+			border: 1px solid #f7eae8;
+		}
+	}
+}
+

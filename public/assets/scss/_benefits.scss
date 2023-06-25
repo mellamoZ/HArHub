@@ -1,0 +1,274 @@
+
+
+
+/*===========================
+    6.BENEFITS css 
+===========================*/
+
+
+
+.benefits-area{
+	position: relative;
+	margin-bottom: 120px;
+	&::before{
+		position: absolute;
+		content: '';
+		right: 0;
+		top: 0;
+		height: 100%;
+		width: 30%;
+		background: $theme-color;
+        z-index: -2;
+        @media #{$md} {
+            width: 0;
+        }
+        @media #{$xs} {
+            width: 0;
+        }
+	}
+	& .benefits-thumb{
+		margin-right: -100px;
+		margin-top: -100px;
+        @media #{$md} {
+            margin-right: 0;
+            margin-top: 0;
+        }
+        @media #{$xs} {
+            margin-right: 0;
+            margin-top: 0;
+        }
+		& img{
+			width: 100%;
+		}
+	}
+	& .benefits-content{
+		padding: 91px 0px 100px 100px;
+		margin-left: -30px;
+		position: relative;
+		z-index: 9;
+        @media #{$lg} {
+            padding: 91px 0 100px 30px;
+        }
+        @media #{$md} {
+            padding: 30px;
+            margin-left: 0;
+        }
+        @media #{$xs} {
+            padding: 30px;
+            margin-left: 0;
+        }
+		&::before{
+			position: absolute;
+			content: '';
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			background: $theme-color;
+			z-index: -1;
+		}
+		& .title{
+			color: $white;
+			font-size: 44px;
+            @media #{$xs} {
+                font-size: 30px;
+            }
+            @media #{$sm} {
+                font-size: 44px;
+            }
+		}
+	}
+    & .benefits-pattern{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+    }
+    & .benefits-dot{
+        position: absolute;
+        left: 215px;
+        bottom: 0;
+        z-index: -1;
+        animation: bubbleMover linear infinite 5s;
+        @media #{$laptop} {
+            left: 0;
+            bottom: 0;
+        }
+    }
+}
+
+
+
+
+
+
+
+.faq-accrodion{
+    margin-top: 56px;
+    margin-right: 0px;
+    background: $theme-color;
+    @media #{$md} {
+        margin-top: 30px;
+        margin-right: 0;
+    }
+    @media #{$xs} {
+        margin-top: 30px;
+        margin-right: 0;
+    }
+    & .accrodion{
+        position: relative;
+        -webkit-transition: all .4s ease;
+        transition: all .4s ease;
+        background-color: #fff;
+        &::before{
+            content: '';
+            position: absolute;
+            top: -1px;
+            bottom: -1px;
+            left: 0px;
+            right: 0px;
+            border-radius: 0px;
+            -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+            background-image: -webkit-gradient(linear, left top, right top, from(var(--thm-primary)), to(var(--thm-base)));
+            background-image: linear-gradient(90deg, var(--thm-primary) 0%, var(--thm-base) 100%);
+            -webkit-transition: -webkit-transform .4s ease;
+            transition: -webkit-transform .4s ease;
+            border-radius: 5px;
+            transition: transform .4s ease;
+            transition: transform .4s ease, -webkit-transform .4s ease;
+
+        }
+        &+.accrodion{
+            margin-top: 10px;
+        }
+        &.active{
+            box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.05);
+            & .accrodion-inner{
+                background-color: transparent;
+                border-color: #f7eae8;
+            }
+            &::before{
+                -webkit-transform: scaleX(1);
+                transform: scaleX(1);
+
+            }
+            & .accrodion-title{
+                padding-bottom: 0;
+                & h4{
+                	color: $heading-color;
+                }
+                &::before{
+                    opacity: 0;
+                }
+                &::after{
+                    opacity: 1;
+                    color: $theme-color;
+                }
+            }
+        }
+        & .accrodion-inner{
+            background-color: transparent;
+            padding: 25px 0;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #f7eae8;
+            position: relative;
+            -webkit-transition: all .4s ease;
+            transition: all .4s ease;
+            border-radius: 0px;
+
+        }
+        & .accrodion-title{
+            padding: 0px 38px;
+            cursor: pointer;
+            position: relative;
+            -webkit-transition: all .4s ease;
+            transition: all .4s ease;
+            @media #{$xs} {
+                padding: 0 38px 0 20px;
+            }
+            &::before{
+                content: '+';
+                font-size: 32px;
+                color: $heading-color;
+                text-align: center;
+                display: -webkit-box;
+                display: flex;
+                -webkit-box-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                align-items: center;
+                position: absolute;
+                top: 50%;
+                right: 30px;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                opacity: 1;
+                -webkit-transition: all 500ms ease;
+                transition: all 500ms ease;
+                @media #{$xs} {
+                    right: 20px;
+                }
+            }
+            &::after{
+                content: '-';
+                font-weight: 400;
+                font-size: 32px;
+                color: $heading-color;
+                text-align: center;
+                display: -webkit-box;
+                display: flex;
+                -webkit-box-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                align-items: center;
+                position: absolute;
+                top: 50%;
+                right: 30px;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                opacity: 0;
+                -webkit-transition: all 500ms ease;
+                transition: all 500ms ease;
+                @media #{$xs} {
+                    right: 20px;
+                }
+
+            }
+            & h4{
+                margin: 0;
+                color: $heading-color;
+                font-size: 16px;
+                font-weight: 700;
+                letter-spacing: 0;
+
+            }
+        }
+        & .accrodion-content{
+            & .inner{
+                padding: 0 38px;
+                padding-right: 30px;
+                padding-top: 29px;
+                padding-bottom: 0px;
+                @media #{$lg} {
+                    padding: 15px 38px 0 40px;
+                }
+                @media #{$xs} {
+                    padding: 0 10px 0 20px;
+                }
+                @media #{$sm} {
+                    padding: 0 38px 0 20px;
+                }
+            }
+            & p{
+                margin: 0;
+                color: #817a78;
+                font-size: 15px;
+                line-height: 32px;
+                font-weight: 500;
+
+            }
+        }
+    }
+}

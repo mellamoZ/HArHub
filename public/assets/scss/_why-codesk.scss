@@ -1,0 +1,140 @@
+
+
+
+/*===========================
+    27.WHY CODESK css 
+===========================*/
+
+
+
+.why-codesk-area{
+	position: relative;
+	& .codesk-pattern{
+		position: absolute;
+		right: 0;
+		top: -200px;
+		animation: pusher linear infinite 10s;
+
+	}
+	& .why-codesk-title{
+		padding-bottom: 27px;
+		& .title{
+			font-size: 44px;
+			@media #{$xs} {}
+			font-size: 32px;
+
+		}
+	}
+	& .why-codesk-shape-area{
+		background: $heading-color;
+		height: 480px;
+		position: relative;
+		z-index: 8;
+		& .why-codesk-pattern{
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: -1;
+		}
+		& .why-codesk-logo{
+			position: absolute;
+			left: 45px;
+			bottom: 0;
+			z-index: -1;
+		}
+	}
+	& .why-codesk-item-area{
+		padding-bottom: 111px;
+		background: $white;
+		margin-bottom: -350px;
+		position: relative;
+		z-index: 9;
+		position: relative;
+		&::before{
+			position: absolute;
+			content: '';
+			left: -100px;
+			bottom: 0;
+			height: 100%;
+			width: 100px;
+			background: $white;
+			@media #{$laptop} {
+				width:15px;
+				left: -15px;
+			}
+			@media #{$lg} {
+				width:30px;
+				left: -30px;
+			}
+			@media #{$md} {
+				display: none;
+			}
+			@media #{$xs} {
+				display: none;
+			}
+		}
+		&::after{
+			position: absolute;
+			content: '';
+			right: -100px;
+			bottom: 0;
+			height: 100%;
+			width: 100px;
+			background: $white;
+			@media #{$laptop} {
+				width: 15px;
+				right: -15px;
+			}
+			@media #{$lg} {
+				width: 30px;
+				right: -30px;
+			}
+			@media #{$md} {
+				display: none;
+			}
+			@media #{$xs} {
+				display: none;
+			}
+		}
+		& .why-codesk-item{
+			& .why-codesk-thumb{
+				overflow: hidden;
+				& img{
+					width: 100%;
+					@include transition(0.3s);
+				}
+			}
+			& .why-codesk-content{
+				padding-top: 25px;
+				& .title{
+					font-size: 20px;
+					letter-spacing: 0;
+					@include transition(0.3s);
+				}
+				& p{
+					font-weight: 500;
+					padding-top: 39px;
+					padding-bottom: 18px;
+				}
+				& a{
+					font-size: 20px;
+					color: $theme-color;
+				}
+			}
+			&:hover{
+				& .why-codesk-thumb{
+					& img{
+						transform: scale(1.1);
+					}
+				}
+				& .why-codesk-content{
+					& .title{
+						color: $theme-color;
+					}
+				}
+			}
+		}
+	}
+
+
+}

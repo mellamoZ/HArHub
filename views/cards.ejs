@@ -1,58 +1,64 @@
 <%- include('partials/index-header.ejs') %>
+   <!--====== PAGE TITLE PART START ======-->
 
-<section class="light">
-  <div class="banner" style="margin-bottom: 20px" data-aos="zoom-out">
-    <span class="banner-header">HarHub news Center!</span>
-  </div>
-
-  <div class="container py-2">
-    <%blogs.forEach(i => {%> <% let newDate = new Date(i.date) %> <%let days =
-    ['Sunday', 'Monday', 'Tuesday','Wednesday', 'Thursday','Friday',
-    'Saturday']%> <%let currentDay = newDate.getDay()%> <% let months =
-    ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
-    'September', 'October', 'November', 'December'];%>
-
-    <article class="postcard light green" data-aos="fade-left">
-      <a class="postcard__img_link" href="#">
-        <img
-          class="postcard__img"
-          src="../assets<%=i.pic%>"
-          alt="Image Title"
-        />
-      </a>
-      <div class="postcard__text t-dark">
-        <h1 class="postcard__title yellow">
-          <a href="#"><%=i.blogName%></a>
-        </h1>
-        <div class="postcard__subtitle small">
-          <time datetime="2020-05-25 12:00:00">
-            <i class="bx bx-calendar mr-2"></i><%=days[currentDay]%>, <%=
-            months[newDate.getMonth()]%> <%=newDate.getDate()%>th
-            <%=newDate.getFullYear()%>
-          </time>
+   <div class="page-title-area bg_cover" style="background-image: url(assets/images/gdgangle.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-title-content">
+                    <h3 class="title">News</h3>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">News</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
         </div>
-        <div class="postcard__bar"></div>
-        <div class="postcard__preview-txt">
-          <%=i.description.substring(0, 300)%>...
+    </div>
+</div>
+
+<!--====== PAGE TITLE PART ENDS ======-->
+
+<!--====== NEWS 2 PART START ======-->
+
+<section class="news-2-area news-page">
+    <div class="container">
+        <div class="row justify-content-center">        
+          <%if( blogs.length == 0){%>
+            Nothing here.
+          <%}else{%>
+          <%blogs.forEach(i => {%> <% let newDate = new Date(i.date) %> <%let days =
+            ['Sunday', 'Monday', 'Tuesday','Wednesday', 'Thursday','Friday',
+            'Saturday']%> <%let currentDay = newDate.getDay()%> <% let months =
+            ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+            'September', 'October', 'November', 'December'];%>
+    
+            
+    
+  <div class="col-lg-4 col-md-7 col-sm-9">
+    <div class="news-item mt-30">
+        <div class="news-thumb">
+            <img  style = "width: 370px; height: 316px;" src="../assets<%=i.pic%>" alt="news">
         </div>
-        <ul class="postcard__tagbox">
-          <li class="tag__item">
-            <i class="bx bx-purchase-tag mr-2"> </i><%=i.category%>
-          </li>
-          <li class="tag__item">
-            <i class="bx bx-stopwatch mr-2"></i
-            ><%=Math.round(i.description.length/200) %>mins
-          </li>
-          <li class="tag__item play yellow">
-            <a href="/<%=i.blogName%>/<%=i._id%>"
-              ><i class="bx bx-play mr-2"></i>Read More</a
-            >
-          </li>
-        </ul>
-      </div>
-    </article>
-    <%})%>
-  </div>
-  <!-- row -->
+        <div class="news-content">
+            <ul>
+             
+                <li><i class="fa fa-clock-o"></i><%=Math.round(i.description.length/800) %>mins</li>
+                <li><i class="fa fa-comments-o"></i> 2 comments</li>
+            </ul>
+            <h3 class="title"> <%=i.blogName%></h3>
+            <a  href =  "/<%=i.blogName%>/<%=i._id%>"><i class="flaticon-right-arrow"></i></a>
+        </div>
+    </div>
+</div>            
+   <%})%>
+
+<%}%>
+        </div>
+    </div>
 </section>
+
+
 <%- include('partials/index-footer.ejs') %>

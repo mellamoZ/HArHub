@@ -1,0 +1,179 @@
+
+
+
+/*===========================
+    4.BEST CREATIVE css 
+===========================*/
+
+
+
+
+.best-creative-area{
+	& .best-creative-bg{
+		background: #fbf0ee;
+		padding-bottom: 20px;
+		position: relative;
+		&::before{
+			position: absolute;
+			content: '';
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			background-image: url(../images/line.png);
+		}
+		& .best-creative-content{
+			padding-left: 80px;
+			padding-top: 68px;
+			padding-bottom: 80px;
+			@media #{$lg} {
+				padding-left: 60px;
+			}
+			@media #{$md} {
+				padding-left: 50px;
+				padding-right: 50px;
+			}
+			@media #{$xs} {
+				padding-left: 30px;
+				padding-right: 30px;
+			}
+			& .title{
+				font-size: 44px;
+				color: $heading-color;
+				letter-spacing: -1.5px;
+				@media #{$lg} {
+					font-size: 36px;
+				}
+				@media #{$xs} {
+					font-size: 26px;
+				}
+				@media #{$sm} {
+					font-size: 38px;
+				}
+			}
+			& p{
+				letter-spacing: -.7px;
+				padding-top: 30px;
+				padding-right: 35px;
+				@media #{$lg} {
+					padding-right: 0;
+				}
+				@media #{$md} {
+					padding-right: 0;
+				}
+				@media #{$xs} {
+					font-size: 15px;
+					padding-right: 0;
+				}
+			}
+		}
+		& .best-creative-list{
+			& .best-creative-seats{
+				background: #ff4332;
+				margin-left: 50px;
+				padding-left: 155px;
+				padding-top: 44px;
+				padding-bottom: 34px;
+				position: relative;
+				@media #{$lg} {
+					margin-left: 0;
+				}
+				@media #{$md} {
+					margin-right: 50px;
+				}
+				@media #{$xs} {
+					margin-right: 30px;
+					margin-left: 30px;
+					padding-left: 30px;
+				}
+				@media #{$sm} {
+					margin-right: 30px;
+					margin-left: 30px;
+					padding-left: 155px;
+				}
+				& i{
+					position: absolute;
+					content: '';
+					left: 60px;
+					top: 50%;
+					transform: translateY(-50%);
+					font-size: 60px;
+					color: $white;
+					@media #{$xs} {
+						position: static;
+						transform: translateY(0);
+					}
+					@media #{$sm} {
+						position: absolute;
+						transform: translateY(-50%);
+					}
+				}
+				& .title{
+					color: $white;
+					font-size: 44px;
+					font-weight: 600;
+					line-height: 36px;
+				}
+				& p{
+					font-size: 18px;
+					font-weight: 500;
+					color: #ffe2df;
+				}
+				& > span{
+					position: absolute;
+					top: -56px;
+					left: 0;
+					background: $white;
+					line-height: 56px;
+					padding: 0 60px;
+					font-size: 14px;
+					font-weight: 700;
+					font-style: italic;
+					color: $heading-color;
+					@media #{$xs} {
+						padding: 0 10px;
+					}
+					@media #{$sm} {
+						padding: 0 30px;
+					}
+				}
+			}
+			& .best-creative-list-item{
+				margin-left: 105px;
+				padding-top: 47px;
+				@media #{$lg} {
+					margin-left: 60px;
+				}
+				@media #{$md} {
+					margin-left: 50px;
+				}
+				@media #{$xs} {
+					margin-left: 30px;
+				}
+				& ul{
+					& li{
+						font-size: 18px;
+						font-weight: 600;
+						color: $heading-color;
+						line-height: 40px;
+						letter-spacing: -.8px;
+						@media #{$xs} {
+							font-size: 16px;
+						}
+						& i{
+							color: $theme-color;
+							padding-right: 28px;
+							@media #{$xs} {
+								padding-right: 7px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+	}
+}
+.odometer-formatting-mark{
+	display: none;
+}

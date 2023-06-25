@@ -1,0 +1,114 @@
+
+
+
+/*===========================
+    12.TESTIMONIAL css 
+===========================*/
+
+
+
+
+.testimonial-title-area{
+	background: $theme-color;
+	position: relative;
+	z-index: 11;
+	&::before{
+	position: absolute;
+	content: '';
+	left: 50%;
+	bottom: -11px;
+	transform: translateX(-50%);
+	width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-top: 11px solid $theme-color;
+	}
+	& .testimonial-title{
+		& .title{
+			line-height: 160px;
+			font-size: 44px;
+			color: $white;
+			@media #{$xs} {
+				font-size: 26px;
+			}
+			@media #{$sm} {
+				font-size: 44px;
+			}
+		}
+	}
+}
+
+
+
+
+.testimonial-area{
+	background: #fbf0ee;
+	padding-top: 120px;
+	padding-bottom: 117px;
+	position: relative;
+	z-index: 10;
+	& .testimonial-pattern{
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+	 & .testimonial-item{
+		background: $white;
+		border: 1px solid #f7eae8;
+		margin-bottom: 40px;
+		position: relative;
+		@include transition(0.3s);
+		& .icon{
+			position: absolute;
+			top: 0;
+			left: 20px;
+		}
+		& p{
+			line-height: 30px;
+			color: #817a78;
+			font-weight: 500;
+			padding: 51px 60px 25px; 
+			@media #{$md} {
+				padding: 51px 40px 25px;
+			}
+			@media #{$xs} {
+				padding: 51px 20px 25px;
+			}
+			@media #{$sm} {
+				padding: 51px 55px 25px;
+			}
+		}
+		& .title{
+			font-size: 20px;
+		}
+		& span{
+			display: block;
+			font-size: 13px;
+			font-weight: 600;
+			color: $theme-color;
+			padding-top: 4px;
+			padding-bottom: 24px;
+		}
+		& > img{
+			margin-bottom: -38px;
+			display: inline-block;
+		}
+	 }
+	 & .testimonial-active{
+	 		& .slick-current{
+	 			& .testimonial-item{
+	 				box-shadow: 0px 20px 20px 0px rgba(63, 56, 54, 0.04);
+	 			}
+	 		}
+	 }
+}
+
+
+
+
+
+
+
+

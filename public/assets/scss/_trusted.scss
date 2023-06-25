@@ -1,0 +1,52 @@
+
+
+
+/*===========================
+    6.TRUSTED css 
+===========================*/
+
+
+
+
+.trusted-area{
+	position: relative;
+	padding-top: 106px;
+	padding-bottom: 220px;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+	&::before{
+		position: absolute;
+		content: '';
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(52, 45, 44,.7);
+
+	}
+	& .trusted-item{
+		& .title{
+			font-size: 64px;
+			color: $white;
+			padding-bottom: 44px;
+			@media #{$lg} {
+				font-size: 52px;
+			}
+			@media #{$md} {
+				font-size: 48px;
+			}
+			@media #{$xs} {
+				font-size: 26px;
+			}
+			@media #{$sm} {
+				font-size: 44px;
+			}
+		}
+	}
+}
+
+
+
+
+
+

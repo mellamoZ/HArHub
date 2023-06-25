@@ -1,0 +1,57 @@
+
+
+
+/*===========================
+    11.CODESK CHANGING css 
+===========================*/
+
+
+
+
+.codesk-changing-area{
+	position: relative;
+	padding-top: 107px;
+	padding-bottom: 116px;
+	background-attachment: fixed;
+
+	&::before{
+		position: absolute;
+		content: '';
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(63, 56, 54,.7);
+
+	}
+	& .codesk-changing-text{
+		& .title{
+			font-size: 64px;
+			color: $white;
+			@media #{$lg} {
+				font-size: 52px;
+			}
+			@media #{$md} {
+				margin-bottom: 30px;
+			}
+			@media #{$xs} {
+				margin-bottom: 30px;
+				font-size: 28px;
+			}
+			@media #{$sm} {
+				margin-bottom: 30px;
+				font-size: 50px;
+			}
+		}
+	}
+	& .codesk-changing-play{
+		& a{
+			width: 122px;
+			height: 116px;
+			line-height: 116px;
+			font-size: 20px;
+		}
+	}
+}
+
+

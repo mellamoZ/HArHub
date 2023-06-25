@@ -1,89 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>HarHub</title>
-    <meta content="" name="description" />
-    <meta content="" name="keywords" />
+<head>
+   
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!--====== Title ======-->
+    <title>Harhub</title>
+    
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="/assets/images/harhublogo5.png" type="image/png">
+    
 
-    <!-- Favicons -->
-    <link href="/assets/img/logo1.png" rel="icon" />
-    <link href="/assets/img/logo1.png" rel="apple-touch-icon" />
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    
+    <!--====== Fontawesome css ======-->
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+    
+    <!--====== flaticon css ======-->
+    <link rel="stylesheet" href="/assets/css/flaticon.css">
+    
+    <!--====== nice select css ======-->
+    <link rel="stylesheet" href="/assets/css/nice-select.css">
+    
+    <!--====== animate css ======-->
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="/assets/css/slick.css">
+    
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="/assets/css/default.css">
+    
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="/assets/css/style.css">
+  
+  
+</head>
 
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-      rel="stylesheet"
-    />
-
-    <!-- Vendor CSS Files -->
-    <link href="/assets/vendor/aos/aos.css" rel="stylesheet" />
-    <link
-      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link
-      href="/assets/vendor/boxicons/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="/assets/vendor/glightbox/css/glightbox.min.css"
-      rel="stylesheet"
-    />
-    <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
-    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-
-    <link href="/assets/css/style.css" rel="stylesheet" />
-  </head>
-</html>
 <body>
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo"
-        ><img src="/assets/img/logo1.png" alt="" class="img-fluid"
-      /></a>
-      <!-- <h1 class="logo"><a href="index.html">HarHub</a></h1> -->
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="/">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li>
-            <a class="nav-link scrollto o" href="/eventcards">Events</a>
-          </li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#pricing">Incubation</a></li>
-          <li class="dropdown">
-            <a href="#"
-              ><span>Our news</span> <i class="bi bi-chevron-down"></i
-            ></a>
-            <ul>
-              <% categories.forEach((i) => { %>
-              <li>
-                <a href="/<%= i.categoryName %>"
-                  ><span><%= i.categoryName %></span>
-                </a>
-              </li>
-              <% }) %>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li>
-            <a class="getstarted scrollto" href="#about">Get Started</a>
-          </li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
-      <!-- .navbar -->
+    <!-- PRELOADER -->
+    <div class="preloader">
+        <div class="lds-ellipsis">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
-  </header>
-  <!-- End Header -->
-</body>
+    <!-- END PRELOADER -->
+
+   
+    <!--====== HEADER PART START ======-->
+    
+    <header class="header-area header-2-area">
+        <div class="main-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="main-header-item d-flex justify-content-between align-items-center">
+                            <div class="main-header-menus  d-flex">
+                                <div class="header-logo">
+                                    <a href="index.html"><img src="/assets/images/logo1.png" alt="logo"></a>
+                                </div>
+                                <div class="header-menu d-none d-lg-block">
+                                    <ul>
+                                        <li>
+                                            <a class="active" href="/">Home </a>
+                                        
+                                        </li>
+                                        <li>
+                                            <a href="/about">About</a>
+                                        </li>
+                                        <li>
+                                            <a href="/events">Events </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Pages  <i class="fa fa-angle-down"></i></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="team.html">team</a></li>
+                                                <li><a href="pricing.html">pricing</a></li>
+                                                <li><a href="book-a-tour.html">book a tour</a></li>
+                                                <li><a href="gallery.html">gallery</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">News  <i class="fa fa-angle-down"></i></a>
+                                              <ul class="sub-menu">
+
+                                            <%  categories.forEach(i =>{ %>
+                                                <li><a href="/<%=i.categoryName%>"><%=i.categoryName%></a></li>
+                                                <% }) %>
+                                                
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="header-social d-flex align-items-center">
+                                <div class="info">
+                                    <i class="flaticon-phone-call"></i>
+                                    <h5 class="title">777 888 0000</h5>
+                                    <span>Phone line</span>
+                                </div>
+                                <div class="toggle-btn ml-30 canvas_open d-lg-none d-block">
+                                    <i class="fa fa-bars"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!--====== HEADER PART ENDS ======-->

@@ -1,0 +1,144 @@
+
+
+
+/*===========================
+    5.SPACE TO MAKE css 
+===========================*/
+
+
+
+
+.space-to-make-area{
+	position: relative;
+	z-index: 10;
+	& .shape-pattern{
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		text-align: right;
+		z-index: -1;
+	}
+	& .shape-pattern-2{
+		position: absolute;
+		right: 285px;
+		top: 0;
+		z-index: -1;
+		animation: bubbleMover2 linear infinite 5s;
+	}
+	& .space-to-make-thumb{
+		margin-right: 70px;
+		position: relative;
+		@media #{$lg} {
+			margin-right: 0;
+		}
+		@media #{$md} {
+			margin-right: 0;
+		}
+		@media #{$xs} {
+			margin-right: 0;
+		}
+		&::before{
+			position: absolute;
+			content: '';
+			left: -60px;
+			top: 50%;
+			transform: translateY(-50%);
+			height: 520px;
+			width: 60px;
+			background: #fbf0ee;
+
+		}
+		& img{
+			width: 100%;
+		}
+		& .thumb-content{
+			position: absolute;
+			left: -30px;
+			bottom: 20px;
+			background: $theme-color;
+			text-align: center;
+			height: 170px;
+			width: 170px;
+			padding-top: 48px;
+			& span{
+				color: $white;
+				font-size: 18px;
+				font-weight: 700;
+			}
+		}
+	}
+	& .space-to-make-content{
+		& .title{
+			font-size: 44px;
+			padding-bottom: 41px;
+			@media #{$md} {
+				margin-top: 30px;
+			}
+			@media #{$xs} {
+				margin-top: 30px;
+				font-size: 38px;
+			}
+			@media #{$sm} {
+				margin-top: 30px;
+				font-size: 44px;
+			}
+		}
+		& p{
+			padding-bottom: 9px;
+			padding-right: 30px;
+			@media #{$lg} {
+				padding-right: 0;
+			}
+			@media #{$md} {
+				padding-right: 0;
+			}
+			@media #{$xs} {
+				padding-right: 0;
+			}
+			&.text{
+				padding-top: 29px;
+				padding-bottom: 28px;
+			}
+		}
+		& .space-to-make-item{
+			padding-left: 92px;
+			position: relative;
+			@media #{$lg} {
+				padding-left: 70px;
+			}
+			& a{
+				& i{
+					position: absolute;
+					left: 0;
+					top: 50%;
+					transform: translateY(-50%);
+					font-size: 60px;
+					color: $theme-color;
+					@include transition(0.3s);
+				}
+				& span{
+					font-weight: 700;
+					font-size: 20px;
+					line-height: 30px;
+					color: $heading-color;
+					letter-spacing: -.7px;
+					@include transition(0.3s);
+					@media #{$lg} {
+						font-size: 18px;
+					}
+					@media #{$xs} {
+						font-size: 18px;
+					}
+				}
+				&:hover{
+					& i{
+						transform: scale(.9) translateY(-50%);
+					}
+					& span{
+						color: $theme-color;
+					}
+				}
+			}
+		}
+	}
+}

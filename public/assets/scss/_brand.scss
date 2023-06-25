@@ -1,0 +1,59 @@
+
+
+
+/*===========================
+    20.BRAND css 
+===========================*/
+
+
+
+
+.brand-area{
+	position: relative;
+	padding-bottom: 120px;
+	background-attachment: fixed;
+	&::before{
+		position: absolute;
+		content: '';
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(52, 45, 44,.7);
+
+	}
+	& .brand-box{
+		padding-top: 118px;
+		padding-bottom: 118px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+		& .brand-item{
+			text-align: center;
+			& img{
+				display: inline-block;
+				opacity: .2;
+				@include transition(0.3s);
+				&:hover{
+					opacity: .6;
+				}
+			}
+		}
+	}
+	& .brand-content{
+		padding-top: 110px;
+		& .title{
+			font-size: 54px;
+			color: $white;
+			padding-bottom: 56px;
+			@media #{$lg} {
+				font-size: 44px;
+			}
+			@media #{$md} {
+				font-size: 44px;
+			}
+			@media #{$xs} {
+				font-size: 34px;
+			}
+		}
+	}
+}
+

@@ -1,0 +1,93 @@
+
+
+
+/*===========================
+    31.GET TO KNOW css 
+===========================*/
+
+
+
+
+.get-to-know-area{
+	padding-top: 120px;
+	padding-bottom: 120px;
+	position: relative;
+	z-index: 10;
+	& .about-pattern{
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+	}
+	& .get-to-know-thumb{
+		position: relative;
+		@media #{$lg} {
+			margin-right: 0;
+		}
+		@media #{$md} {
+			margin-right: 0;
+		}
+		@media #{$xs} {
+			margin-right: 0;
+		}
+		& img{
+			width: 100%;
+		}
+		&::before{
+			position: absolute;
+			content: '';
+			left: -60px;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 60px;
+			height: 560px;
+			background: #fbf0ee;
+		}
+	}
+	& .get-to-know-content{
+		@media #{$md} {
+			margin-top: 30px;
+		}
+		@media #{$xs} {
+			margin-top: 30px;
+		}
+		& .title{
+			font-size: 44px;
+			@media #{$lg} {
+				font-size: 40px;
+			}
+			@media #{$xs} {
+				font-size: 32px;
+			}
+			@media #{$sm} {
+				font-size: 44px;
+			}
+		}
+		& p{
+			padding-right: 10px;
+			padding-top: 40px;
+			padding-bottom: 36px;
+		}
+		& ul{
+			& li{
+				font-size: 18px;
+				font-weight: 600;
+				line-height: 40px;
+				color: $heading-color;
+				@media #{$xs} {
+					font-size: 16px;
+				}
+				& i{
+					color: $theme-color;
+					padding-right: 28px;
+					@media #{$xs} {
+						padding-right: 10px;
+					}
+				}
+			}
+		}
+		& a{
+			margin-top: 44px;
+		}
+	}
+}

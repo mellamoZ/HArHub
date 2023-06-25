@@ -1,0 +1,210 @@
+
+
+
+/*===========================
+    7.SERVICES css 
+===========================*/
+
+
+
+
+.services-area{
+	background: #fbf0ee;
+	position: relative;
+	z-index: 10;
+	& .services-pattern{
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+	& .services-dot{
+		position: absolute;
+		right: 180px;
+		bottom: -60px;
+		z-index: -1;
+		animation: pusher linear infinite 10s;
+		@media #{$laptop} {
+			right: 0;
+		}
+		@media #{$lg} {
+			right: 0;
+		}
+		@media #{$md} {
+			right: 0;
+		}
+		@media #{$xs} {
+			right: 0;
+		}
+	}
+	& .services-title{
+		margin-top: 22px;
+		& .title{
+			font-size: 44px;
+			@media #{$lg} {
+				font-size: 36px;
+			}
+			@media #{$xs} {
+				font-size: 30px;
+			}
+		}
+	}
+	& .single-services{
+		padding: 35px 32px 38px 48px;
+		background: $white;
+		border: 1px solid #f7eae8;
+		@include transition(0.3s);
+		@media #{$lg} {
+			padding: 35px 30px 38px 30px;
+		}
+		& i{
+			font-size: 60px;
+			color: $theme-color;
+			@include transition(0.3s);
+		}
+		& .title{
+			font-size: 22px;
+			line-height: 30px;
+			letter-spacing: 0;
+			padding-top: 5px;
+			padding-bottom: 22px;
+			@include transition(0.3s);
+			@media #{$lg} {
+				font-size: 18px;
+			}
+			@media #{$md} {
+				font-size: 18px;
+			}
+			@media #{$xs} {
+				font-size: 20px;
+			}
+		}
+		& p{
+			font-weight: 500;
+			padding-right: 10px;
+			@media #{$lg} {
+				font-size: 15px;
+				padding-right: 0;
+			}
+			@media #{$md} {
+				padding-right: 0;
+			}
+			@media #{$xs} {
+				padding-right: 0;
+			}
+		}
+		&:hover{
+			& i{
+				transform: scale(.9);
+			}
+			& .title{
+				color: $theme-color;
+			}
+		}
+		&:hover{
+			box-shadow: 0px 20px 20px 0px rgba(63, 56, 54, 0.04);
+		}
+	}
+	& .services-book{
+		border: 4px solid $heading-color;
+		padding: 62px 95px 64px;
+		@media #{$lg} {
+			padding: 62px 30px 64px;
+		}
+		@media #{$xs} {
+			padding: 62px 30px 64px;
+		}
+		& .title{
+			font-size: 34px;
+			padding-bottom: 31px;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+.services-box-area{
+	position: relative;
+	z-index: 10;
+	padding-bottom: 111px;
+	& .services-pattern{
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+	& .single-services{
+		padding: 35px 32px 38px 48px;
+		background: $white;
+		border: 1px solid #f7eae8;
+		@include transition(0.3s);
+		@media #{$lg} {
+			padding: 35px 30px 38px 30px;
+		}
+		@media #{$xs} {
+			padding: 20px;
+		}
+		& i{
+			font-size: 60px;
+			color: $theme-color;
+			@include transition(0.3s);
+		}
+		& a{
+			display: block;
+		}
+		& .title{
+			font-size: 22px;
+			line-height: 30px;
+			letter-spacing: 0;
+			padding-top: 5px;
+			padding-bottom: 22px;
+			@include transition(0.3s);
+			@media #{$lg} {
+				font-size: 18px;
+			}
+			@media #{$md} {
+				font-size: 18px;
+			}
+			@media #{$xs} {
+				font-size: 16px;
+			}
+		}
+		& p{
+			font-weight: 500;
+			@include transition(0.3s);
+			padding-right: 10px;
+			@media #{$lg} {
+				font-size: 14px;
+				padding-right: 0;
+			}
+			@media #{$md} {
+				padding-right: 0;
+			}
+			@media #{$xs} {
+				padding-right: 0;
+			}
+
+		}
+		&.active,
+		&:hover{
+			background: $theme-color;
+			border-color: $theme-color;
+			box-shadow: 0px 20px 20px 0px rgba(63, 56, 54, 0.04);
+			& i{
+				color: $white;
+			}
+			& .title{
+				color: $white;
+			}
+			& p{
+				color: $white;
+			}
+		}
+	}
+}
+

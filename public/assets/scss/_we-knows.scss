@@ -1,0 +1,128 @@
+
+
+
+/*===========================
+    10.WE KNOWS css 
+===========================*/
+
+
+
+.we-knows-area{
+	padding-top: 111px;
+	position: relative;
+	z-index: 10;
+	& .we-knows-content{
+		& .title{
+			font-size: 44px;
+			@media #{$lg} {
+				font-size: 38px;
+			}
+			@media #{$xs} {
+				font-size: 26px;
+			}
+			@media #{$sm} {
+				font-size: 44px;
+			}
+		}
+		& p{
+			margin-right: -2px;
+			padding-top: 39px;
+			padding-bottom: 50px;
+		}
+		& img{
+			width: 100%;
+		}
+	}
+	& .we-knows-item{
+		& .we-knows-item-content{
+			width: 50%;
+			padding: 53px 60px 60px;
+			background: $theme-color;
+			margin-right: 5px;
+			@media #{$lg} {
+				padding: 43px 30px 50px;
+			}
+			@media #{$xs} {
+				padding: 30px;
+				width: 100%;
+			}
+			@media #{$sm} {
+				padding: 30px;
+				width: 50%;
+			}
+
+			& .title{
+				font-size: 24px;
+				color: $white;
+				line-height: 30px;
+				padding-right: 15px;
+				padding-bottom: 18px;
+				@media #{$lg} {
+					font-size: 19px;
+				}
+			}
+			& a{
+				background: #3f3836;
+				padding: 0 20px;
+				line-height: 36px;
+				font-size: 14px;
+				font-weight: 600;
+				& i{
+					padding-left: 6px;
+				}
+			}
+		}
+		& .we-knows-item-thumb{
+			margin-left: 5px;
+			width: 50%;
+			@media #{$xs} {
+				width: 100%;
+			}
+			@media #{$sm} {
+				width: 50%;
+			}
+			& img{
+				width: 100%;
+			}
+		}
+		&.item-2{
+			& .we-knows-item-content{
+				margin-right: 0;
+				margin-left: 5px;
+				background: $heading-color;
+				& a{
+					background: $theme-color;
+				}
+			}
+			& .we-knows-item-thumb{
+				margin-left: 0;
+				margin-right: 5px;
+			}
+		}
+	}
+	& .we-knows-center{
+		position: relative;
+		& .we-know-logo{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			height: 100px;
+			width: 100px;
+			background: $white;
+			text-align: center;
+			line-height: 100px;
+		}
+	}
+	& .we-know-line{
+		position: absolute;
+		top: 145px;
+		left: 180px;
+		z-index: -1;
+		animation: bubbleMover2 linear infinite 5s;
+		@media #{$laptop} {
+			left: 0;
+		}
+	}
+
+}

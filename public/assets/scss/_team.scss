@@ -1,0 +1,84 @@
+
+
+
+/*===========================
+    29.TEAM css 
+===========================*/
+
+
+
+
+.team-area{
+	padding-top: 109px;
+	padding-bottom: 120px;
+	position: relative;
+	z-index: 10;
+	& .team-pattern{
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+		animation: pusher linear infinite 10s;
+	}
+	& .team-title{
+		padding-bottom: 19px;
+		& .title{
+			font-size: 44px;
+			@media #{$xs} {
+				font-size: 32px;
+			}
+		}
+	}
+	& .team-item{
+		& .team-thumb{
+			overflow: hidden;
+			& img{
+				width: 100%;
+				@include transition(0.3s);
+			}
+		}
+		& .team-content{
+			padding-top: 26px;
+			& .title{
+				font-size: 20px;
+				color: #3f3836;
+			}
+			& span{
+				font-size: 14px;
+				font-weight: 600;
+				color: #817a78;
+				padding-bottom: 26px;
+			}
+			& ul{
+				& li{
+					display: inline-block;
+					& a{
+						height: 45px;
+						width: 45px;
+						text-align: center;
+						line-height: 45px;
+						border-radius: 50%;
+						background: #fbf0ee;
+						color: $heading-color;
+						margin: 0 3px;
+						@include transition(0.3s);
+						&:hover{
+							color: $white;
+							background: $theme-color;
+						}
+					}
+				}
+			}
+		}
+		&:hover{
+			& .team-thumb{
+				& img{
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+	&.team-page{
+		padding-top: 90px;
+	}
+}

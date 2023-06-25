@@ -1,0 +1,57 @@
+
+
+
+/*===========================
+    26.WE LISTEN css 
+===========================*/
+
+
+
+.we-listen-area{
+	background: #fbf0ee;
+	padding-top: 229px;
+	padding-bottom: 120px;
+	position: relative;
+	z-index: 10;
+	&::before{
+		position: absolute;
+		content: '';
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-image: url(../images/line.png);
+		background-size: 70% 100%;
+		background-repeat: no-repeat;
+		background-position: center;;
+
+	}
+	& .we-listen-content{
+		margin-right: 35px;
+		@media #{$xs} {
+			margin-right: 0;
+		}
+		& .title{
+			font-size: 44px;
+			padding-bottom: 30px;
+		}
+		& p{
+			padding-bottom: 5px;
+		}
+		& .thumb{
+			& img{
+				width: 100%;
+			}
+		}
+	}
+	& .faq-accrodion{
+		margin-top: 10px;
+		background-color: transparent;
+	}
+	&.events-listen-area{
+		padding-top: 111px;
+		&::before{
+			display: none;
+		}
+	}
+}

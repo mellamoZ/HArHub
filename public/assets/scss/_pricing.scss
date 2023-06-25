@@ -1,0 +1,156 @@
+
+
+
+/*===========================
+    25.PRICING css 
+===========================*/
+
+
+.pricing-area{
+	padding-bottom: 120px;
+	& .pricing-title-area{
+		background: $heading-color;
+		padding-top: 111px;
+		padding-bottom: 208px;
+		position: relative;
+		z-index: 10;
+		overflow: hidden;
+		& .pricing-pattern{
+			position: absolute;
+			content: '';
+			left: 0;
+			top: 0;
+			z-index: -1;
+		}
+		& .pricing-logo{
+			position: absolute;
+			content: '';
+			right: 135px;
+			bottom: 45px;
+			z-index: -1;
+			@media #{$laptop} {
+				right: 0;
+			}
+		}
+		& .pricng-title{
+			& .title{
+				font-size: 44px;
+				color: $white;
+				@media #{$xs} {
+					font-size: 32px;
+				}
+			}
+		}
+	}
+	& .pricing-item-area{
+		margin-top: -150px;
+		z-index: 11;
+		position: relative;
+		& .pricing-item{
+			border: 1px solid #f7eae8;
+			padding: 53px 60px 60px;
+			background: $white;
+			@include transition(0.3s);
+			@media #{$lg} {
+				padding: 53px 30px 60px;
+			}
+			@media #{$md} {
+				padding: 53px 30px 60px;
+				margin-top: 30px;
+			}
+			@media #{$xs} {
+				padding: 53px 30px 60px;
+				margin-top: 30px;
+			}
+
+			&:hover{
+				box-shadow: 0px 20px 20px 0px rgba(63, 56, 54, 0.04);
+			}
+			& > span{
+				font-weight: 600;
+				color: $heading-color;
+				text-transform: capitalize;
+			}
+			& .title{
+				font-size: 44px;
+				color: $theme-color;
+				font-weight: 400;
+				margin-top: -2px;
+			}
+			& .list{
+				text-align: left;
+				border-top: 1px solid #f7eae8;
+				margin-top: 32px;
+				padding-top: 26px;
+				padding-bottom: 24px;
+				& ul{
+					& li{
+						line-height: 40px;
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						& i{
+							color: $theme-color;
+						}
+						& span{
+							font-weight: 500;
+							color: #817a78;
+						}
+					}
+				}
+			}
+		}
+		& .pricing-dot{
+			position: absolute;
+			left: 155px;
+			bottom: -200px;
+			z-index: -1;
+			animation: pusher linear infinite 10s;
+			@media #{$laptop} {
+				left: 0;
+			}
+			@media #{$lg} {
+				left: 0;
+			}
+			@media #{$md} {
+				left: 0;
+			}
+			@media #{$xs} {
+				left: 0;
+			}
+		}
+	}
+	&.pricing-page{
+		& .pricing-title-area{
+			background: $white;
+			& .pricng-title{
+				& .title{
+					color: $heading-color;
+				}
+			}
+		}
+	}
+
+}
+
+
+.play-area{
+	margin-bottom: -118px;
+	position: relative;
+	z-index: 11;
+	& .play-thumb{
+		position: relative;
+		& a{
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			height: 115px;
+			width: 125px;
+			line-height: 115px;
+			font-size: 20px;
+		}
+		& img{
+			width: 100%;
+		}
+	}
+}

@@ -1,0 +1,53 @@
+
+
+
+/*===========================
+    17.SUB css 
+===========================*/
+
+
+
+.sub-area{
+	background: $theme-color;
+	padding-top: 85px;
+	padding-bottom: 110px;
+	position: relative;
+	&::before{
+		position: absolute;
+		content: '';
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-image: url(../images/line-4.png);
+		background-size: 70% 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	& .sub-item{
+		padding-left: 100px;
+		position: relative;
+		& i{
+			position: absolute;
+			left: 0;
+			top: -12px;
+			font-size: 64px;
+			color: $white;
+			@include transition(0.3s);
+		}
+		& .title{
+			font-size: 22px;
+			color: $white;
+			letter-spacing: -1px;
+		}
+		& p{
+			color: $white;
+			padding-top: 40px;
+		}
+		&:hover{
+			& i{
+				transform: scale(.9);
+			}
+		}
+	}
+}

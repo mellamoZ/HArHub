@@ -1,0 +1,72 @@
+
+
+
+/*===========================
+    15.COMPANY LOGOS css 
+===========================*/
+
+
+
+
+
+.fun-facts-area::before {
+
+}
+
+
+
+.company-logos-area{
+	background: #fbf0ee;
+	padding-top: 120px;
+	padding-bottom: 110px;
+	position: relative;
+	&::before{
+		position: absolute;
+		content: '';
+		left: 50%;
+		transform: translateX(-50%);
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-image: url(../images/line-2.png);
+		background-size: 70% 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	& .company-logos-text{
+		& .title{
+			font-size: 44px;
+			@media #{$md} {
+				margin-bottom: 20px;
+			}
+			@media #{$xs} {
+				margin-bottom: 20px;
+				font-size: 26px;
+			}
+			@media #{$sm} {
+				margin-bottom: 20px;
+				font-size: 44px;
+			}
+		}
+	}
+	& .logo-item{
+		cursor: pointer;
+		@media #{$xs} {
+			text-align: center;
+			margin-top: 30px;
+		}
+		@media #{$sm} {
+			text-align: left;
+			margin-top: 30px;
+		}
+		& img{
+			opacity: .3;
+			@include transition(0.3s);
+		}
+		&:hover{
+			& img{
+				opacity: 1;
+			}
+		}
+	}
+}

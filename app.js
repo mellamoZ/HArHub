@@ -110,6 +110,14 @@ const paymentSchema = {
   date: String,
 };
 
+const commentSchema = {
+  fullName: String,
+  email: String,
+  date: String,
+  message: String,
+  blogId: String
+};
+
 const admin = new mongoose.model("Admin", adminSchema);
 // passport.use(admin.createStrategy());
 // passport.serializeUser(admin.serializeUser);
@@ -118,6 +126,8 @@ const event = new mongoose.model("Event", eventSchema);
 const category = new mongoose.model("Category", categorySchema);
 const testimonial = new mongoose.model("Testimonial", testimonialSchema);
 const blog = new mongoose.model("Blog", blogSchema);
+const comment = new mongoose.model("Comment", commentSchema);
+
 const booking = new mongoose.model("Booking", eventBooking);
 const payment = new mongoose.model("Payment", paymentSchema);
 let date = moment().format("YYYY-MM-DD");
@@ -260,6 +270,21 @@ app.get("/category", function (req, res) {
       });
     });
   }
+});
+
+app.get("/about", function (req, res) {
+
+
+    category.find({}, async (err, foundCategory) => {
+      if (err) {
+        console.log(err);
+      }
+
+      res.render("about", {
+        categories: foundCategory,
+      });
+    });
+  
 });
 
 app.get("/event", function (req, res) {
@@ -461,6 +486,7 @@ app.get("/:cards", function (req, res) {
   });
 });
 let eventId;
+let  blogId;
 app.get("/admin/active/edit/:id", function (req, res) {
   eventId = req.params.id;
   booking.findOne({ _id: eventId }, async (err, foundBlog) => {
@@ -490,7 +516,7 @@ app.post("/admin/completed/action", function (req, res) {
     );
   } else if (action === "Active") {
     blog.findOneAndUpdate(
-      { _id: blogId },
+      { _id: eventId },
       { status: action },
       async (err, changed) => {
         if (err) {
@@ -501,7 +527,7 @@ app.post("/admin/completed/action", function (req, res) {
       }
     );
   } else {
-    blog.findByIdAndDelete({ _id: blogId }, async (err, deleted) => {
+    blog.findByIdAndDelete({ _id: eventId }, async (err, deleted) => {
       if (err) {
         console.log(err);
       } else {
@@ -564,7 +590,7 @@ app.post("/admin/pending/action", function (req, res) {
 });
 
 app.get("/:cards/:blog", function (req, res) {
-  const blogId = req.params.blog;
+   blogId = req.params.blog;
 
   category.find({}, async (err, foundCategory) => {
     if (err) {
@@ -574,10 +600,19 @@ app.get("/:cards/:blog", function (req, res) {
       if (err) {
         console.log(err);
       }
+
+      comment.find({ blogId: blogId }, async (err, foundComments) => {
+        if (err) {
+          console.log(err);
+        }
       res.render("info", {
         categories: await foundCategory,
         blog: await foundBlog,
+        comments: await foundComments
       });
+
+    });
+
     });
   });
 });
@@ -732,6 +767,29 @@ app.post("/login", function (req, res) {
       }
     }
   });
+});
+//Start posting comment
+
+app.post("/comment", function (req, res) {
+  fullName = req.body.name;
+  email = req.body.email;
+  message = req.body.message;
+
+  const newComment = new comment({
+    fullName: fullName,
+    email: email,
+    date: date,
+    message: message,
+    blogId:blogId
+  });
+
+  newComment.save(function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
+  
+  res.redirect("/");
 });
 
 //Mailling section
