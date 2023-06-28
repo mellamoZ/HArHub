@@ -5,14 +5,17 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const axios = require("axios");
 const passport = require("passport");
+const localStrategy = require("passport-local")
 const flash = require("express-flash");
 const session = require("express-session");
 const multer = require("multer");
+const alert = require('alert'); 
 const fs = require("fs");
 const moment = require("moment");
 const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 const { log } = require("console");
+
 const port = process.env.PORT || 5000;
 app.use(express.static("public"));
 
@@ -24,7 +27,6 @@ app.use(express.static("public"));
 //     saveUninitialized: false,
 //   })
 // );
-
 // app.use(passport.initialize());
 // app.use(passport.session());
 app.set("view engine", "ejs");
@@ -51,11 +53,15 @@ const Storage = multer.diskStorage({
 });
 const upload = multer({ storage: Storage });
 
-const adminSchema = {
+const adminSchema = new mongoose.Schema( {
   email: String,
   password: String,
-};
+});
+
 // adminSchema.plugin(passportLocalMongoose);
+
+
+
 const eventSchema = {
   title: String,
   body: String,
@@ -129,9 +135,41 @@ const commentSchema = {
 };
 
 const admin = new mongoose.model("Admin", adminSchema);
+
 // passport.use(admin.createStrategy());
-// passport.serializeUser(admin.serializeUser);
-// passport.deserializeUser(admin.deserializeUser);
+
+
+// passport.serializeUser(function(user, done) {
+//   done(null, user.id);
+// });
+
+// passport.deserializeUser(function(id, done) {
+//   admin.findById(id, function(err,user){
+//       done(err, user);
+//   })
+// });
+
+// passport.use(new localStrategy(function(email,password,done){
+//   admin.findOne({email:email}, function(err,user){
+//     if(err){
+//       return done(err)
+//     }
+
+// if(!user){
+//   return(null,false,{message:"inncorrect username"})
+// }
+
+// if(password === user.password){
+//   return done(null,user)
+// }else{
+//   return done(null,false, {message:"incorrect"})
+// }
+    
+//   })
+// }))
+
+
+
 const event = new mongoose.model("Event", eventSchema);
 const category = new mongoose.model("Category", categorySchema);
 const testimonial = new mongoose.model("Testimonial", testimonialSchema);
@@ -338,13 +376,14 @@ app.post("/tour", function (req, res) {
     phone: phone,
     size: size,
     message: message,
-    date: date,
+    date:date,
   });
 
   newTour.save(function (err) {
     if (err) {
       console.log(err);
     }else{
+      alert("Success")
       res.redirect("/tour");
     }
   });
@@ -527,17 +566,23 @@ app.get("/testimonial", function (req, res) {
 });
 
 
-app.get("/testimonial", function (req, res) {
+app.get("/showtours", function (req, res) {
+  
   if (1 == 1) {
     tour.find({}, async (err, foundTours) => {
+      
       if (err) {
         console.log(err);
       }else{
+      
     res.render("showtours", {tours: foundTours});
   }
 
     })
-  } else {
+  }
+  
+  
+  else {
     category.find({}, async (err, foundCategory) => {
       if (err) {
         console.log(err);
@@ -875,6 +920,32 @@ app.post("/login", function (req, res) {
     }
   });
 });
+
+// app.post("/login", (req,res)=> {
+// const user = new admin({ 
+//   email: req.body.email,
+//   password: req.body.password
+
+// })
+
+// req.login(user, (err)=> {
+//   console.log("we not here")
+
+//   if(err){
+//     console.log(err)
+//   }else{
+//     console.log("we here")
+//     passport.authenticate("local")(req,res, function(){
+//       console.log("we here 2")
+
+//     res.redirect("/dashboard")
+//     })
+//   }
+// })
+
+// })
+
+
 //Start posting comment
 
 app.post("/comment", function (req, res) {
