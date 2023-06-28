@@ -72,6 +72,8 @@ const tourSchema = {
   phone: String,
   size: String,
   message: String,
+  date: String,
+
 };
 
 const eventBooking = {
@@ -336,6 +338,7 @@ app.post("/tour", function (req, res) {
     phone: phone,
     size: size,
     message: message,
+    date: date,
   });
 
   newTour.save(function (err) {
@@ -522,6 +525,32 @@ app.get("/testimonial", function (req, res) {
     });
   }
 });
+
+
+app.get("/testimonial", function (req, res) {
+  if (1 == 1) {
+    tour.find({}, async (err, foundTours) => {
+      if (err) {
+        console.log(err);
+      }else{
+    res.render("showtours", {tours: foundTours});
+  }
+
+    })
+  } else {
+    category.find({}, async (err, foundCategory) => {
+      if (err) {
+        console.log(err);
+      }
+
+      res.render("login", {
+        categories: foundCategory,
+      });
+    });
+  }
+});
+
+
 app.get("/testimonials", function (req, res) {
   if (1 == 1) {
     testimonial.find({}, (err, foundTestimonials) => {
