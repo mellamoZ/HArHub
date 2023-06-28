@@ -57,7 +57,75 @@
         </div>
     </div>
     <!-- END PRELOADER -->
+    <!-- PRELOADER -->
+    <div class="preloader">
+        <div class="lds-ellipsis">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <!-- END PRELOADER -->
 
+    <!--====== OFFCANVAS MENU PART START ======-->
+
+    <div class="off_canvars_overlay">
+                
+    </div>
+    <div class="offcanvas_menu">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="offcanvas_menu_wrapper">
+                        <div class="canvas_close">
+                            <a href="javascript:void(0)"><i class="fa fa-times"></i></a>  
+                        </div>
+                        <div class="offcanvas-social">
+                            <ul class="text-center">
+                                <li><a href="$"><i class="fa fa-facebook-square"></i></a></li>
+                                <li><a href="$"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="$"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="$"><i class="fa fa-dribbble"></i></a></li>
+                            </ul>
+                        </div>
+                        <div id="menu" class="text-left ">
+                            <ul class="offcanvas_main_menu">
+                                <li class="menu-item-has-children active">
+                                    <a href="/">Home</a>
+                                </li>
+                                <li class="menu-item-has-children active">
+                                    <a href="/tour">Tour</a>
+                                 
+                                </li>
+                                <li class="menu-item-has-children active">
+                                    <a href="#">News</a>
+                                    <ul class="sub-menu">
+                                        <%  categories.forEach(i =>{ %>
+                                            <li><a href="/<%=i.categoryName%>"><%=i.categoryName%></a></li>
+                                            <% }) %>
+                                            
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children active">
+                                    <a href="/eventcards">Events</a>
+                                   
+                                </li>
+                               
+                                <li class="menu-item-has-children active">
+                                    <a href="/contact">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="offcanvas_footer">
+                            <span><a href="mailto:tanvirahmed8282@gmail.com"><i class="fa fa-envelope-o"></i> layerdrops@gmail.com</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--====== OFFCANVAS MENU PART ENDS ======-->
    
     <!--====== HEADER PART START ======-->
     
@@ -69,7 +137,7 @@
                         <div class="main-header-item d-flex justify-content-between align-items-center">
                             <div class="main-header-menus  d-flex">
                                 <div class="header-logo">
-                                    <a href="index.html"><img src="/assets/images/logo1.png" alt="logo"></a>
+                                    <a href="/"><img src="/assets/images/logo1.png" alt="logo"></a>
                                 </div>
                                 <div class="header-menu d-none d-lg-block">
                                     <ul>
@@ -83,15 +151,7 @@
                                         <li>
                                             <a href="/eventcards">Events </a>
                                         </li>
-                                        <li>
-                                            <a href="#">Pages  <i class="fa fa-angle-down"></i></a>
-                                            <ul class="sub-menu">
-                                                <li><a href="team.html">team</a></li>
-                                                <li><a href="pricing.html">pricing</a></li>
-                                                <li><a href="book-a-tour.html">book a tour</a></li>
-                                                <li><a href="gallery.html">gallery</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="/tour">Book a tour</a></li>
                                         <li>
                                             <a href="#">News  <i class="fa fa-angle-down"></i></a>
                                               <ul class="sub-menu">
@@ -102,7 +162,7 @@
                                                 
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="/contact">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>

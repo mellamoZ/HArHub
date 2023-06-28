@@ -16,9 +16,9 @@
           </div>
           <div class="banner-social d-none d-md-block">
               <ul>
-                  <li><a href="#">Twitter</a></li>
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Linkedin</a></li>
+                  <li><a  target="_blank" href="#">Twitter</a></li>
+                  <li><a  target="_blank" href="#">Facebook</a></li>
+                  <li><a target="_blank" href="https://www.facebook.com/HarHubSomaliland/">Linkedin</a></li>
               </ul>
           </div>
       </div>
@@ -102,7 +102,8 @@
                           <div class="find-space-content">
                               <h4 class="title">Coworking Space</h4>
                               <p>Comfortable enviourment for your next big thing.</p>
-                              <a href="book-a-tour.html"><i class="flaticon-right-arrow"></i></a>
+                              <a href="/tour"><i class="flaticon-right-arrow"></i></a>
+
                           </div>
                       </div>
                       <div class="find-space-item mt-30 d-block d-sm-flex">
@@ -112,7 +113,8 @@
                           <div class="find-space-content">
                               <h4 class="title">Events</h4>
                               <p>Weekly exciting yet intriguing and conterversal events.</p>
-                              <a href="book-a-tour.html"><i class="flaticon-right-arrow"></i></a>
+                              <a href="/tour"><i class="flaticon-right-arrow"></i></a>
+
                           </div>
                       </div>
                       <div class="find-space-item mt-30 d-block d-sm-flex">
@@ -122,7 +124,8 @@
                           <div class="find-space-content">
                               <h4 class="title">Entrepreneurship</h4>
                               <p>Investment oppurtunities for youths for their well-thought ideas.</p>
-                              <a href="book-a-tour.html"><i class="flaticon-right-arrow"></i></a>
+                              <a href="/tour"><i class="flaticon-right-arrow"></i></a>
+
                           </div>
                       </div>
                   </div>
@@ -183,32 +186,32 @@
               <div class="row barnd-active">
                   <div class="col-lg-3">
                       <div class="brand-item">
-                          <a href="#"><img src="assets/images/clients/client-1.png" alt=""></a>
+                          <a href="#"><img src="assets/images/clients/client-1.jpeg" alt=""></a>
                       </div>
                   </div>
                   <div class="col-lg-3">
                       <div class="brand-item">
-                          <a href="#"><img src="assets/images/clients/client-12.png" alt=""></a>
+                          <a href="#"><img src="assets/images/clients/client-2.jpeg" alt=""></a>
                       </div>
                   </div>
                   <div class="col-lg-3">
                       <div class="brand-item">
-                          <a href="#"><img src="assets/images/clients/client-3.png" alt=""></a>
+                          <a href="#"><img src="assets/images/clients/client-3.jpeg" alt=""></a>
                       </div>
                   </div>
                   <div class="col-lg-3">
                       <div class="brand-item">
-                          <a href="#"><img src="assets/images/clients/client-4.png" alt=""></a>
+                          <a href="#"><img src="assets/images/clients/client-4.jpeg" alt=""></a>
                       </div>
                   </div>
                   <div class="col-lg-3">
                       <div class="brand-item">
-                          <a href="#"><img src="assets/images/clients/client-5.png" alt=""></a>
+                          <a href="#"><img src="assets/images/clients/client-5.jpeg" alt=""></a>
                       </div>
                   </div>
                   <div class="col-lg-3">
                       <div class="brand-item">
-                          <a href="#"><img src="assets/images/clients/client-6.png" alt=""></a>
+                          <a href="#"><img src="assets/images/clients/client-6.jpeg" alt=""></a>
                       </div>
                   </div>
               </div>
@@ -217,7 +220,7 @@
               <div class="col-lg-9">
                   <div class="brand-content text-center">
                       <h3 class="title">Harhub gives you unmatched agility without compromising on experience.</h3>
-                      <a class="main-btn" href="book-a-tour.html">Book a tour</a>
+                      <a class="main-btn" href="/tour">Book a tour</a>
                   </div>
               </div>
           </div>
@@ -242,16 +245,16 @@
       </div>
       <div class="join-community-counter">
           <div class="item">
-              <h3 class="title counter">880</h3>
+              <h3 class="title counter">80</h3>
               <p>Creative people space is available.</p>
           </div>
           <div class="item item-2">
-              <h3 class="title"><span class="counter">70</span>+</h3>
+              <h3 class="title"><span class="counter">30</span>+</h3>
               <p>Conference & meeting rooms available.</p>
           </div>
       </div>
       <div class="community-logo">
-          <img src="assets/images/harhublogo5.png" style="height: 250px; width: 250px; " alt="">
+          <img src="assets/images/footer-pattern.png" style="height: 250px; width: 250px; " alt="">
       </div>
   </section>
   
@@ -271,83 +274,35 @@
           <div class="row">
               <div class="col-lg-12">
                   <div class="upcoming-events-item">
+                    <% let newDate = new Date(events[events.length -1].date) %> <%let currentDay
+                      = newDate.getDay()%> <% let months = ['January', 'February', 'March', 'April',
+                      'May', 'June', 'July', 'August', 'September', 'October', 'November',
+                      'December'];%>
+
+                      <%let cutted = events[events.length -1].body.substring(0, 100)%>
                       <div class="item mt-20">
                           <div class="row align-items-center">
                               <div class="col-lg-9">
                                   <div class="upcoming-events-content d-block d-md-flex align-items-center">
                                       <div class="thumb">
-                                          <img src="assets/images/events-1.jpg" alt="">
-                                          <div class="date">
-                                              <span>07 <br> Feb</span>
+                                        <img src="assets<%=events[events.length -1].pic%>" style="width:130px; height:128px;" alt="">
+                                        <div class="date">
+                                              <span><%=currentDay%> <%=months[newDate.getMonth()]%></span>
                                           </div>
                                       </div>
                                       <div class="content ml-65">
                                           <ul>
-                                              <li><i class="fa fa-clock-o"></i> 12:00 am </li>
-                                              <li><i class="fa fa-user-o"></i> Admin </li>
+                                            <li><i class="fa fa-clock-o"></i> <%=events[events.length -1].time%> </li>
+                                            <li><i class="fa fa-user-o"></i> Admin </li>
                                           </ul>
-                                          <h4 class="title">The new startup is on the way</h4>
-                                          <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered in some form humour.</p>
+                                          <h4 class="title"><%=events[events.length -1].title%></h4>
+                                          <p><%=cutted%>...</p>
                                       </div>
                                   </div>
                               </div>
                               <div class="col-lg-3">
                                   <div class="events-btn text-left text-lg-right">
-                                      <a class="main-btn main-btn-2" href="single-event.html">Join event</a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="item mt-20">
-                          <div class="row align-items-center">
-                              <div class="col-lg-9">
-                                  <div class="upcoming-events-content d-block d-md-flex align-items-center">
-                                      <div class="thumb">
-                                          <img src="assets/images/events-2.jpg" alt="">
-                                          <div class="date">
-                                              <span>07 <br> Feb</span>
-                                          </div>
-                                      </div>
-                                      <div class="content ml-65">
-                                          <ul>
-                                              <li><i class="fa fa-clock-o"></i> 12:00 am </li>
-                                              <li><i class="fa fa-user-o"></i> Admin </li>
-                                          </ul>
-                                          <h4 class="title">The new startup is on the way</h4>
-                                          <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered in some form humour.</p>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="col-lg-3">
-                                  <div class="events-btn text-left text-lg-right">
-                                      <a class="main-btn main-btn-2" href="single-event.html">Join event</a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="item mt-20">
-                          <div class="row align-items-center">
-                              <div class="col-lg-9">
-                                  <div class="upcoming-events-content d-block d-md-flex align-items-center">
-                                      <div class="thumb">
-                                          <img src="assets/images/events-3.jpg" alt="">
-                                          <div class="date">
-                                              <span>07 <br> Feb</span>
-                                          </div>
-                                      </div>
-                                      <div class="content ml-65">
-                                          <ul>
-                                              <li><i class="fa fa-clock-o"></i> 12:00 am </li>
-                                              <li><i class="fa fa-user-o"></i> Admin </li>
-                                          </ul>
-                                          <h4 class="title">The new startup is on the way</h4>
-                                          <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered in some form humour.</p>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="col-lg-3">
-                                  <div class="events-btn text-left text-lg-right">
-                                      <a class="main-btn main-btn-2" href="single-event.html">Join event</a>
+                                      <a class="main-btn main-btn-2" href="eventcards">See events</a>
                                   </div>
                               </div>
                           </div>
@@ -384,7 +339,7 @@
                           <span><span>02 <i class="flaticon-right-arrow"></i></span> About our workspace offering</span>
                           <p>Training and development that ensure every business achieving its full potential.</p>
                       </div>
-                      <a class="main-btn main-btn-2 mt-40" href="about.html">Join us now</a>
+                      <a class="main-btn main-btn-2 mt-40" href="about">Join us now</a>
                   </div>
               </div>
           </div>
@@ -416,8 +371,8 @@
               <img src="assets/images/pricing-pattern.png" alt="">
           </div>
           <div class="pricing-logo">
-              <img src="assets/images/pricing-logo.png" alt="">
-          </div>
+            <img src="assets/images/pricing-pattern.png" alt="">
+        </div>
       </div>
       <div class="pricing-item-area">
           <div class="container">
@@ -437,7 +392,7 @@
         
                               </ul>
                           </div>
-                          <a class="main-btn main-btn-2" href="book-a-tour.html">Book space</a>
+                          <a class="main-btn main-btn-2" href="/tour">Book space</a>
                       </div>
                   </div>
                   <div class="col-lg-4 col-md-7 col-sm-9">
@@ -453,7 +408,7 @@
                                   <li class="na">ACCESS CLOSED EVENTS AT THE HUB <i class="fa fa-check"></i></li>
                               </ul>
                           </div>
-                          <a class="main-btn main-btn-2" href="book-a-tour.html">Book space</a>
+                          <a class="main-btn main-btn-2" href="/tour">Book space</a>
                       </div>
                   </div>
                   <div class="col-lg-4 col-md-7 col-sm-9">
@@ -468,7 +423,7 @@
                                   <li class="na">PRIVATE MEETING ROOMS (8 HOURS / MONTH) <i class="fa fa-check"></i></li>
                                   <li class="na">WORKSPACE BRANDING <i class="fa fa-check"></i></li>                                    
                           </div>
-                          <a class="main-btn main-btn-2" href="book-a-tour.html">Book space</a>
+                          <a class="main-btn main-btn-2" href="/tour">Book space</a>
                       </div>
                   </div>
               </div>
@@ -581,51 +536,50 @@
               </div>
           </div>
           <div class="row justify-content-center">
+
               <div class="col-lg-4 col-md-7 col-sm-9">
                   <div class="news-item mt-30">
                       <div class="news-thumb">
-                          <img src="assets/images/news-1.jpg" alt="news">
-                      </div>
+                        <img  style = "width: 370px; height: 316px;" src="../assets<%=blogs[0].pic%>" alt="news">
+                    </div>
                       <div class="news-content">
                           <ul>
                               <li><i class="fa fa-user-o"></i> by admin</li>
-                              <li><i class="fa fa-comments-o"></i> 2 comments</li>
                           </ul>
-                          <h3 class="title">Why your business absolutely needs <br> a virtual office</h3>
-                          <a href="single-news.html"><i class="flaticon-right-arrow"></i></a>
+                          <h3 class="title"><%=blogs[0].blogName%></h3>
+                          <a href="/<%=blogs[0].category%>"><i class="flaticon-right-arrow"></i></a>
                       </div>
                   </div>
               </div>
+
               <div class="col-lg-4 col-md-7 col-sm-9">
-                  <div class="news-item mt-30">
-                      <div class="news-thumb">
-                          <img src="assets/images/news-2.jpg" alt="news">
-                      </div>
-                      <div class="news-content">
-                          <ul>
-                              <li><i class="fa fa-user-o"></i> by admin</li>
-                              <li><i class="fa fa-comments-o"></i> 2 comments</li>
-                          </ul>
-                          <h3 class="title">Why your business absolutely needs <br> a virtual office</h3>
-                          <a href="single-news.html"><i class="flaticon-right-arrow"></i></a>
-                      </div>
+                <div class="news-item mt-30">
+                    <div class="news-thumb">
+                      <img  style = "width: 370px; height: 316px;" src="../assets<%=blogs[0].pic%>" alt="news">
                   </div>
-              </div>
-              <div class="col-lg-4 col-md-7 col-sm-9">
-                  <div class="news-item mt-30">
-                      <div class="news-thumb">
-                          <img src="assets/images/news-3.jpg" alt="news">
-                      </div>
-                      <div class="news-content">
-                          <ul>
-                              <li><i class="fa fa-user-o"></i> by admin</li>
-                              <li><i class="fa fa-comments-o"></i> 2 comments</li>
-                          </ul>
-                          <h3 class="title">Why your business absolutely needs <br> a virtual office</h3>
-                          <a href="single-news.html"><i class="flaticon-right-arrow"></i></a>
-                      </div>
+                    <div class="news-content">
+                        <ul>
+                            <li><i class="fa fa-user-o"></i> by admin</li>
+                        </ul>
+                        <h3 class="title"><%=blogs[0].blogName%></h3>
+                        <a href="/<%=blogs[0].category%>"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+            </div>              <div class="col-lg-4 col-md-7 col-sm-9">
+                <div class="news-item mt-30">
+                    <div class="news-thumb">
+                      <img  style = "width: 370px; height: 316px;" src="../assets<%=blogs[0].pic%>" alt="news">
                   </div>
-              </div>
+                    <div class="news-content">
+                        <ul>
+                            <li><i class="fa fa-user-o"></i> by admin</li>
+                        </ul>
+                        <h3 class="title"><%=blogs[0].blogName%></h3>
+                        <a href="/<%=blogs[0].category%>"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+            </div>
+
           </div>
       </div>
       <div class="news-pattern">
@@ -642,17 +596,17 @@
           <div class="row align-items-center">
               <div class="col-lg-4">
                   <div class="cta-content">
-                      <h3 class="title">Fully equipped meeting rooms for rent</h3>
+                      <h3 class="title">Fully equipped meeting rooms available</h3>
                   </div>
               </div>
               <div class="col-lg-5">
                   <div class="cta-content">
-                      <p>Sed quia lipsum dolor sit atur adipiscing elit is nunc quis tellus sed ligula porta ultricies quis nec magna neulla.</p>
+                      <p> We have a flexible mentality. We embrace creativity to be a hub for business-and people-driven impact in all Somali-speaking regions and beyond. What are you waiting for?</p>
                   </div>
               </div>
               <div class="col-lg-3">
                   <div class="cta-content text-left text-lg-right">
-                      <a class="main-btn" href="book-a-tour.html">Book a tour</a>
+                      <a class="main-btn" href="/tour">Book a tour</a>
                   </div>
               </div>
           </div>

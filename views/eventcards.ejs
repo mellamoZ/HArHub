@@ -3,7 +3,7 @@
 
     <!--====== PAGE TITLE PART START ======-->
 
-    <div class="page-title-area bg_cover" style="background-image: url(assets/images/page-title-bg.jpg);">
+    <div class="page-title-area bg_cover" style="background-image: url(assets/images/gdgangle.jpg);">
       <div class="container">
           <div class="row">
               <div class="col-lg-12">
@@ -34,30 +34,32 @@
                       = newDate.getDay()%> <% let months = ['January', 'February', 'March', 'April',
                       'May', 'June', 'July', 'August', 'September', 'October', 'November',
                       'December'];%>
+
+                      <%let cutted = i.body.substring(0, 100)%>
                     
                       <div class="item mt-20">
                           <div class="row align-items-center">
                               <div class="col-lg-9">
                                   <div class="upcoming-events-content d-block d-md-flex align-items-center">
                                       <div class="thumb">
-                                          <img src="assets/images/events-1.jpg" alt="">
+                                          <img src="assets<%=i.pic%>" style="width:130px; height:128px;" alt="">
                                           <div class="date">
-                                              <span><%=currentDay%></span>
+                                              <span><%=currentDay%> <%=months[newDate.getMonth()]%></span>
                                           </div>
                                       </div>
                                       <div class="content ml-65">
                                           <ul>
-                                              <li><i class="fa fa-clock-o"></i> 12:00 am </li>
+                                              <li><i class="fa fa-clock-o"></i> <%=i.time%> </li>
                                               <li><i class="fa fa-user-o"></i> Admin </li>
                                           </ul>
                                           <h4 class="title"><%=i.title%></h4>
-                                          <p><%=i.body%></p>
+                                          <p><%=cutted%>...</p>
                                       </div>
                                   </div>
                               </div>
                               <div class="col-lg-3">
                                   <div class="events-btn text-left text-lg-right">
-                                      <a class="main-btn main-btn-2" href="single-news.html">Join event</a>
+                                      <a class="main-btn main-btn-2" href="eventbooking/<%=i._id%>">Join event</a>
                                   </div>
                               </div>
                           </div>
@@ -75,72 +77,74 @@
   
   <!--====== UPPCOMING EVENTS PART ENDS ======-->
 
-  <!--====== WE LISTEN PART START ======-->
+ <!--====== WE LISTEN PART START ======-->
   
-  <section class="we-listen-area events-listen-area">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-6">
-                  <div class="we-listen-content">
-                      <h3 class="title">We listen and work together.</h3>
-                      <p>There are many variations of passages the majority have suffered alteration in some fo injected humour.</p>
-                      <div class="row">
-                          <div class="col-lg-6">
-                              <div class="thumb mt-30">
-                                  <img src="assets/images/listed-item-1.jpg" alt="">
-                              </div>
-                          </div>
-                          <div class="col-lg-6">
-                              <div class="thumb mt-30">
-                                  <img src="assets/images/listed-item-2.jpg" alt="">
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-6">
-                  <div class="faq-accordion">
-                      <div class="accrodion-grp"  data-grp-name="faq-accrodion">
-                          <div class="accrodion active  animated wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="0ms">
-                              <div class="accrodion-inner">
-                                  <div class="accrodion-title">
-                                      <h4>1. Reserve conference rooms</h4>
-                                  </div>
-                                  <div class="accrodion-content">
-                                      <div class="inner">
-                                          <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable.</p>
-                                      </div><!-- /.inner -->
-                                  </div>
-                              </div><!-- /.accrodion-inner -->
-                          </div>
-                          <div class="accrodion   animated wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="300ms">
-                              <div class="accrodion-inner">
-                                  <div class="accrodion-title">
-                                      <h4>2. Post or respond to job listings</h4>
-                                  </div>
-                                  <div class="accrodion-content">
-                                      <div class="inner">
-                                          <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable.</p>
-                                      </div><!-- /.inner -->
-                                  </div>
-                              </div><!-- /.accrodion-inner -->
-                          </div>
-                          <div class="accrodion  animated wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="600ms">
-                              <div class="accrodion-inner">
-                                  <div class="accrodion-title">
-                                      <h4>3. Flexibility of monthly terms</h4>
-                                  </div>
-                                  <div class="accrodion-content">
-                                      <div class="inner">
-                                          <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable.</p>
-                                      </div><!-- /.inner -->
-                                  </div>
-                              </div><!-- /.accrodion-inner -->
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
+ <section class="we-listen-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="we-listen-content">
+                    <h3 class="title">We listen and work together.</h3>
+                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour.</p>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="thumb mt-30">
+                                <img src="assets/images/presentation.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="thumb mt-30">
+                                <img src="assets/images/listen.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="faq-accordion">
+                    <div class="accrodion-grp"  data-grp-name="faq-accrodion">
+                        <div class="accrodion active  animated wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="0ms">
+                            <div class="accrodion-inner">
+                                <div class="accrodion-title">
+                                    <h4>1. Entrepreneurship Training</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>Sharing ideas/knowledge supports both entrepreneurs & experienced executives.</p>
+                                    </div><!-- /.inner -->
+                                </div>
+                            </div><!-- /.accrodion-inner -->
+                        </div>
+                        <div class="accrodion   animated wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="300ms">
+                            <div class="accrodion-inner">
+                                <div class="accrodion-title">
+                                    <h4>2. Business incubation services </h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>HarHub Business Incubation is designed to empower entrepreneurs, freelancers, and digital nomads with safe, secure, cool, and work-oriented space to foster startups growth and sustainability.</p>
+                                    </div><!-- /.inner -->
+                                </div>
+                            </div><!-- /.accrodion-inner -->
+                        </div>
+                        <div class="accrodion animated wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="600ms">
+                            <div class="accrodion-inner">
+                                <div class="accrodion-title">
+                                    <h4>3. Networking events</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>Network with professionals in your industry – join us for our business networking events.</p>
+                                    </div><!-- /.inner -->
+                                </div>
+                            </div><!-- /.accrodion-inner -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--====== WE LISTEN PART ENDS ======-->
 <%- include('partials/index-footer.ejs') %>

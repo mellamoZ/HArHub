@@ -1,0 +1,78 @@
+<%- include('partials/index-header') %>
+
+ <!--====== PAGE TITLE PART START ======-->
+
+ <div class="page-title-area bg_cover" style="background-image: url(assets/images/contact.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-title-content">
+                    <h3 class="title">Contact</h3>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--====== PAGE TITLE PART ENDS ======-->
+
+
+        
+<!--====== WRITE MASSAGE PART START ======-->
+
+<section class="write-massage-area pb-120">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="write-massage-content">
+                    <div class="write-massage-title text-center">
+                        <h3 class="title">Write us message.</h3>
+                    </div>
+                    <div class="write-massage-input">
+                        <form action="/mail" method ="post">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="input-box mt-10">
+                                        <input type="text" required name="name" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-box mt- 10">
+                                        <input type="text" required name="email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-box mt-10">
+                                        <input type="number" required name="number" placeholder="Phone">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input-box mt-10">
+                                        <input type="text" required name="subject" placeholder="Subject">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="input-box mt-10 text-center">
+                                        <textarea cols="30" rows="10" name="message" placeholder="Message"></textarea>
+                                        <button type="submit" class="main-btn main-btn-2">Send message</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--====== WRITE MASSAGE PART ENDS ======-->        
+    
+
+<%- include('partials/index-footer') %>

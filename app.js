@@ -66,6 +66,14 @@ const eventSchema = {
   fee: String,
 };
 
+const tourSchema = {
+  name: String,
+  email: String,
+  phone: String,
+  size: String,
+  message: String,
+};
+
 const eventBooking = {
   eventid: String,
   eventName: String,
@@ -127,6 +135,7 @@ const category = new mongoose.model("Category", categorySchema);
 const testimonial = new mongoose.model("Testimonial", testimonialSchema);
 const blog = new mongoose.model("Blog", blogSchema);
 const comment = new mongoose.model("Comment", commentSchema);
+const tour = new mongoose.model("Tour", tourSchema);
 
 const booking = new mongoose.model("Booking", eventBooking);
 const payment = new mongoose.model("Payment", paymentSchema);
@@ -154,7 +163,7 @@ app.get("/", function (req, res) {
     if (err) {
       console.log(err);
     }
-    testimonial.find({}, async (err, foundTestimonials) => {
+    event.find({}, async (err, foundEvents) => {
       if (err) {
         console.log(err);
       }
@@ -164,7 +173,7 @@ app.get("/", function (req, res) {
         }
         res.render("index", {
           categories: await foundCategory,
-          testimonials: await foundTestimonials,
+          events: await foundEvents,
           blogs: await foundBlog,
         });
       });
@@ -273,8 +282,7 @@ app.get("/category", function (req, res) {
 });
 
 app.get("/about", function (req, res) {
-
-
+  testimonial.find({}, async (err, foundTestimonials) => {
     category.find({}, async (err, foundCategory) => {
       if (err) {
         console.log(err);
@@ -282,10 +290,65 @@ app.get("/about", function (req, res) {
 
       res.render("about", {
         categories: foundCategory,
+        testimonials: foundTestimonials
       });
     });
   
+  });
 });
+
+
+app.get("/contact", function (req, res) {
+    category.find({}, async (err, foundCategory) => {
+      if (err) {
+        console.log(err);
+      }
+
+      res.render("contact", {
+        categories: foundCategory,
+      });
+    });
+});
+
+
+app.get("/tour", function (req, res) {
+  category.find({}, async (err, foundCategory) => {
+    if (err) {
+      console.log(err);
+    }
+    res.render("tour", {
+      categories: foundCategory,
+    });
+  });
+});
+
+//Start Posting tour
+app.post("/tour", function (req, res) {
+  const companyName = req.body.name;
+  const email = req.body.email;
+  const phone = req.body.phone;
+  const size = req.body.size;
+  const message = req.body.message;
+
+  const newTour = new tour({
+    name: companyName,
+    email: email,
+    phone: phone,
+    size: size,
+    message: message,
+  });
+
+  newTour.save(function (err) {
+    if (err) {
+      console.log(err);
+    }else{
+      res.redirect("/tour");
+    }
+  });
+
+});
+
+
 
 app.get("/event", function (req, res) {
   if (1 == 1) {
@@ -300,6 +363,21 @@ app.get("/event", function (req, res) {
       });
     });
   }
+});
+
+app.get("/eventbooking/:eventbookingid", function (req, res) {
+  let eventbookingid = req.params.eventbookingid
+  event.find({_id: eventbookingid }, async (err, foundEventBookings) => {
+    category.find({}, async (err, foundCategory) => {
+      if (err) {
+        console.log(err);
+      }
+      res.render("eventbooking", {
+        categories: foundCategory,
+        eventbooking: foundEventBookings
+      });
+    });
+  })
 });
 
 //start pending events
@@ -798,10 +876,12 @@ app.post("/mail", function (req, res) {
   const email = req.body.email;
   const subject = req.body.subject;
   const message = req.body.message;
+  const phone = req.body.number
+  console.log(message)
   //url
-  const listID = "14afd134a7";
+  const listID = "9da59bc711";
   const url = "https://us17.api.mailchimp.com/3.0/lists/" + listID;
-  const apiKey = "34aaa2a0354983730d15f5a5ff0b2930-us17";
+  const apiKey = "44846694333e5f832f53771fdf9c8eb3-us17";
 
   //data
   const data = {
@@ -813,6 +893,7 @@ app.post("/mail", function (req, res) {
           FNAME: fullName,
           SUBJECT: subject,
           MSG: message,
+          PHONE: phone,
         },
       },
     ],
@@ -820,7 +901,7 @@ app.post("/mail", function (req, res) {
 
   const config = {
     headers: {
-      authorization: "somDigital " + apiKey,
+      authorization: "HarHub " + apiKey,
       Accept: "application/json",
       "Content-Type": "application/json",
     },

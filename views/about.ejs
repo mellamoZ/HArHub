@@ -3,15 +3,15 @@
 
     <!--====== PAGE TITLE PART START ======-->
 
-    <div class="page-title-area bg_cover" style="background-image: url(assets/images/gdgangle.jpg);">
+    <div class="page-title-area bg_cover" style="background-image: url(assets/images/about.jpg); " >
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="page-title-content">
-                        <h3 class="title">About</h3>
+                    <div class="page-title-content " >
+                        <h3 class="title" >About</h3>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">About</li>
                             </ol>
                         </nav>
@@ -92,50 +92,42 @@
     <section class="testimonial-area">
         <div class="container">
             <div class="row testimonial-active">
-                <div class="col-lg-4">
+
+
+                
+                    
+
+                
+
+
+              <%testimonials.forEach(i =>{ %>
+
+                <% if(testimonials.length < 2){ %>
+                <div class="col-lg-12">
+                <%}else{%>
+                    <div class="col-lg-4">
+
+                <%}%>
                     <div class="testimonial-item text-center">
-                        <p>I was impresed by the moling services, not lorem ipsum is simply free text of used by refreshing. Neque porro este qui dolorem ipsum quia.</p>
-                        <h4 class="title">Jessica rose</h4>
-                        <span>Freelancer</span>
-                        <img src="assets/images/testimonial-1.jpg" alt="testimonial">
+                        <p><%=i.comment%></p>
+                        <h4 class="title"><%=i.firstName%></h4>
+                        <span><%=i.position%></span>
+                        <img style="height:72px; width:72px; border-radius:50%;" src="assets<%=i.pic%>" alt="testimonial">
                         <div class="icon">
                             <img src="assets/images/quote-icon.png" alt="">
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="testimonial-item text-center">
-                        <p>I was impresed by the moling services, not lorem ipsum is simply free text of used by refreshing. Neque porro este qui dolorem ipsum quia.</p>
-                        <h4 class="title">Kevin martin</h4>
-                        <span>CEO</span>
-                        <img src="assets/images/testimonial-2.jpg" alt="testimonial">
-                        <div class="icon">
-                            <img src="assets/images/quote-icon.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="testimonial-item text-center">
-                        <p>I was impresed by the moling services, not lorem ipsum is simply free text of used by refreshing. Neque porro este qui dolorem ipsum quia.</p>
-                        <h4 class="title">Sarah albert</h4>
-                        <span>Developer</span>
-                        <img src="assets/images/testimonial-3.jpg" alt="testimonial">
-                        <div class="icon">
-                            <img src="assets/images/quote-icon.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="testimonial-item text-center">
-                        <p>I was impresed by the moling services, not lorem ipsum is simply free text of used by refreshing. Neque porro este qui dolorem ipsum quia.</p>
-                        <h4 class="title">Kevin martin</h4>
-                        <span>CEO</span>
-                        <img src="assets/images/testimonial-2.jpg" alt="testimonial">
-                        <div class="icon">
-                            <img src="assets/images/quote-icon.png" alt="">
-                        </div>
-                    </div>
-                </div>
+
+<%})%>
+
+
+
+
+
+
+
+                
             </div>
         </div>
         <div class="testimonial-pattern">
@@ -145,36 +137,37 @@
     
     <!--====== TESTIMONIAL PART ENDS ======-->
 
-    <!--====== JOIN COMMUNITY PART START ======-->
-    
-    <section class="join-community-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="join-community-content">
-                        <h3 class="title animated wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms">Join a community of early stage startups.</h3>
-                        <p class=" animated wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="300ms">Lorem ipsum is simply free text dolor sit amett adipiscing elit. When an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                        <a class="main-btn animated wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="600ms" href="about.html">Read more</a>
-                    </div>
+ <!--====== JOIN COMMUNITY PART START ======-->
+  
+ <section class="join-community-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="join-community-content">
+                    <h3 class="title animated wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms">Join a community of early stage startups.</h3>
+                    <p class=" animated wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="300ms">HarHub Business Incubation is the first incubation in Somaliland/Somalia and is designed to empower entrepreneurs, freelancers, Job seekers and digital nomads with safe, secure, cool, and work-oriented space to foster startups growth and sustainability.</p>
+                    <a class="main-btn animated wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="600ms" href="/about">Read more</a>
                 </div>
             </div>
         </div>
-        <div class="join-community-counter">
-            <div class="item">
-                <h3 class="title counter">880</h3>
-                <p>Creative people space is available.</p>
-            </div>
-            <div class="item item-2">
-                <h3 class="title"><span class="counter">70</span>+</h3>
-                <p>Conference & meeting rooms available.</p>
-            </div>
+    </div>
+    <div class="join-community-counter">
+        <div class="item">
+            <h3 class="title counter">880</h3>
+            <p>Creative people space is available.</p>
         </div>
-        <div class="community-logo">
-            <img src="assets/images/community-logo.png" alt="">
+        <div class="item item-2">
+            <h3 class="title"><span class="counter">70</span>+</h3>
+            <p>Conference & meeting rooms available.</p>
         </div>
-    </section>
-    
-    <!--====== JOIN COMMUNITY PART ENDS ======-->
+    </div>
+    <div class="community-logo">
+        <img src="assets/images/footer-pattern.png" style="height: 250px; width: 250px; " alt="">
+    </div>
+</section>
+
+<!--====== JOIN COMMUNITY PART ENDS ======-->
+
 
     <!--====== TEAM PART START ======-->
     
@@ -262,27 +255,27 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="logo-item mt-15">
-                                <img src="assets/images/clients/client-1.png" alt="">
+                                <img src="assets/images/clients/client-1.jpeg" alt="">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="logo-item mt-15">
-                                <img src="assets/images/clients/client-2.png" alt="">
+                                <img src="assets/images/clients/client-2.jpeg" alt="">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="logo-item mt-15">
-                                <img src="assets/images/clients/client-3.png" alt="">
+                                <img src="assets/images/clients/client-3.jpeg" alt="">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="logo-item mt-80">
-                                <img src="assets/images/clients/client-4.png" alt="">
+                                <img src="assets/images/clients/client-4.jpeg" alt="">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="logo-item mt-80">
-                                <img src="assets/images/clients/client-5.png" alt="">
+                                <img src="assets/images/clients/client-5.jpeg" alt="">
                             </div>
                         </div>
                     </div>
