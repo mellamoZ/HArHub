@@ -187,16 +187,16 @@ let time = moment().format("LT");
 //   }
 // });
 
-const newAdmin = new admin({
-  email: "admin@gmail.com",
-  password: "123",
-});
+// const newAdmin = new admin({
+//   email: "admin@gmail.com",
+//   password: "123",
+// });
 
-newAdmin.save(function (err) {
-  if (err) {
-    console.log(err);
-  }
-});
+// newAdmin.save(function (err) {
+//   if (err) {
+//     console.log(err);
+//   }
+// });
 
 app.get("/", function (req, res) {
   category.find({}, async (err, foundCategory) => {
