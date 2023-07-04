@@ -29,6 +29,7 @@ app.use(express.static("public"));
 // );
 // app.use(passport.initialize());
 // app.use(passport.session());
+mongoose.set('strictQuery', false);
 app.set("view engine", "ejs");
 app.use(
   bodyParser.urlencoded({
